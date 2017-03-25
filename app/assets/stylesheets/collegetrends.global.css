@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+body {
+	color: #6d6d6d;
+	background: #efefef;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    color: #4c77a4;
+    text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:active {
+    color: #4c77a4;
+    text-decoration: none;
+}
+
+.navbar-brand {
+	font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 950px;
+	}
+}
