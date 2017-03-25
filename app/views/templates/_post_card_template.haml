@@ -1,0 +1,27 @@
+%script#post-card-template{:type => "text/x-handlebars-template"}
+  .well.well-sm.well-card.well-feed{"data-post-id" => "{{post.id}}"}
+    .body
+      .media
+        .media-left
+          %a{:href => "#"}
+            %img.media-object.img-circle{:alt => "...", :src => "{{user.profile_picture}}", :width => "35"}/
+          %span.icon.icon-heart.like-btn.text-muted{"data-like-id" => "0"}
+        .media-body
+          .pull-right
+            %span.icon.icon-bin.delete-post{:title => "Delete this post"}
+            .loader.loader-inner.ball-pulse.pull-right.post-operation-loader.hidden
+              %div
+              %div
+              %div
+          %h5.media-heading
+            {{user.first_name}} {{user.last_name}}
+          %small Just now
+          %p
+            {{post.content}}
+    .footer
+      %ul.list-unstyled.list-inline
+        %li
+          %span.likes-count
+            0 Likes
+        %li
+          %span.icon.icon-share.share-btn.hidden

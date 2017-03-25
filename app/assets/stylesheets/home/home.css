@@ -31,10 +31,6 @@
 	margin-bottom: 0;
 }
 
-.well-feed .footer .icon-heart {
-	color: #f75252;
-}
-
 .well-feed .footer li {
 	font-weight: 600;
 }
@@ -224,4 +220,30 @@
 
 .about-us .copy {
 	padding-left: 6px;
+}
+
+.like-btn,
+.share-btn {
+  cursor: pointer;
+  font-size: 2em;
+  top: 15px;
+  position: relative;
+}
+
+.well-feed .media {
+  min-height: 78px;
+}
+
+.text-danger {
+  color: #f75252;
+}
+
+.delete-post {
+  cursor: pointer;
+}
+
+.delete-post:hover,
+.delete-post:focus,
+.delete-post:active {
+  color: #8a8a8a;
 }

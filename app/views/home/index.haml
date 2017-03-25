@@ -7,82 +7,14 @@
   .container
     .row
       .col-md-8
-        .well.well-sm.well-card.well-status-post
-          .media
-            .media-left
-              %a{:href => "#"}
-                %img.media-object.img-circle{:alt => "...", :src => "https://scontent.fblr1-1.fna.fbcdn.net/v/t1.0-1/c0.46.160.160/p160x160/10273906_10205850730174579_6462288405333286776_n.jpg?oh=3b19a413d7e18ee0c000da8ddbcb3be4&oe=596CB983", :width => "45"}/
-            .media-body
-              %h5.media-heading
-                Mukunda Gogoi
-                %br/
-                %span.small
-                  BMS College Of Engineering
-            .status-text-holder
-              %textarea{:placeholder => "Share something today..", :rows => "2"}
-              %button.btn.btn-sm.btn-default.pull-right Share
-        .well.well-sm.well-card.well-feed
-          .body
-            .media
-              .media-left
-                %a{:href => "#"}
-                  %img.media-object.img-circle{:alt => "...", :src => "https://scontent.fblr1-1.fna.fbcdn.net/v/t1.0-1/c0.46.160.160/p160x160/10273906_10205850730174579_6462288405333286776_n.jpg?oh=3b19a413d7e18ee0c000da8ddbcb3be4&oe=596CB983", :width => "35"}/
-              .media-body
-                %h5.media-heading John Smith
-                %small 24 hours ago
-                %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text erike Aldus PageMaker including versions of Lorem Ipsum.
-          .footer
-            %ul.list-unstyled.list-inline
-              %li
-                %span.icon.icon-heart
-                534
-              %li
-                %span.icon.icon-share
-                233
+        = render "widgets/post_status_div"
+        .posts-container
+          = render partial: "widgets/post_card"
       .col-md-4
-        .well.well-md.well-card.well-profile-sm
-          .header.text-center
-            %a{:href => "#"}
-              %img.img-circle{:alt => "...", :src => "https://scontent.fblr1-1.fna.fbcdn.net/v/t1.0-1/c0.46.160.160/p160x160/10273906_10205850730174579_6462288405333286776_n.jpg?oh=3b19a413d7e18ee0c000da8ddbcb3be4&oe=596CB983", :width => "60"}/
-            %h4 Mukunda Gogoi
-            %p.small
-              BMS College Of Engineering
-            %p.small
-              %b.text-primary 200
-              Followers |
-              %b.text-primary 20
-              Following |
-              %b.text-primary 23
-              Friends
-            %hr/
-            %p
-              %button.btn.btn-primary Edit profile
-              %button.btn.btn-default View profile
-        .about-us
-          %ul.list-inline
-            %li
-              %a{:href => "#"}
-                About Us
-            %li
-              %a{:href => "#"}
-                Learn More
-            %li
-              %a{:href => "#"}
-                Contact
-            %li
-              %a{:href => "#"}
-                FAQ
-            %li
-              %a{:href => "#"}
-                Sitemap
-            %li
-              %a{:href => "#"}
-                Terms
-            %li
-              %a{:href => "#"}
-                Privacy Policy
-            .copy.small.text-muted
-              Copyright © 2017 Saurus, Inc. All rights reserved.
+        = render "widgets/mini_profile_card"
+        = render "common/about_us"
+
+  = render "templates/post_card_template"
 
 - content_for :pagejs do
   - javascript_include_tag "lib/post/post.js", "home/home.js"

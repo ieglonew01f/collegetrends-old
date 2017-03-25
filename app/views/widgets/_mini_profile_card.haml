@@ -1,0 +1,20 @@
+.well.well-md.well-card.well-profile-sm
+  .header.text-center
+    %a{:href => "#"}
+      %img.img-circle{:alt => "...", :src => "#{@user.profile_picture}", :width => "60"}/
+    %h4
+      = @user.first_name
+      = @user.last_name
+    %p.small
+      BMS College Of Engineering
+    %p.small
+      %b.text-primary 200
+      Followers |
+      %b.text-primary 20
+      Following |
+      %b.text-primary 23
+      Friends
+    %hr/
+    %p
+      %button.btn.btn-primary Edit profile
+      %button.btn.btn-default View profile

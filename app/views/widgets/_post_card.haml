@@ -1,0 +1,34 @@
+- @posts.each do |post|
+  .well.well-sm.well-card.well-feed{"data-post-id" => "#{post.id}", "data-post-likes-count" => "#{post.post_likes.count}"}
+    .body
+      .media
+        .media-left
+          %a{:href => "#"}
+            %img.media-object.img-circle{:alt => "...", :src => "#{post.user.profile_picture}", :width => "35"}/
+          - if PostLike.where('post_id = ? AND liked_by = ?', post.id, current_user.id).first.nil?
+            %span.icon.icon-heart.like-btn.text-muted{"data-liked" => "0"}
+          - elsif
+            %span.icon.icon-heart.like-btn.text-danger{"data-liked" => "1"}
+        .media-body
+          - if post.user.id == current_user.id
+            .pull-right
+              %span.icon.icon-bin.delete-post{:title => "Delete this post"}
+              .loader.loader-inner.ball-pulse.pull-right.post-operation-loader.hidden
+                %div
+                %div
+                %div
+          %h5.media-heading
+            = post.user.first_name
+            = post.user.last_name
+          %small
+            = time_ago_in_words(post.created_at)
+            ago
+          %p
+            = post.content
+    .footer
+      %ul.list-unstyled.list-inline
+        %li
+          %span.likes-count
+            = pluralize(post.post_likes.count, 'like')
+        %li
+          %span.icon.icon-share.share-btn.hidden

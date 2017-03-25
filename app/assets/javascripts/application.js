@@ -15,4 +15,4 @@
 //= require bootstrap/bootstrap.js
 //= require handlebars/handlebars.js
 
-COLLEGETRENDS = {};
+//= require lib/utils/utils.js

@@ -1,0 +1,19 @@
+.well.well-sm.well-card.well-status-post
+  .media
+    .media-left
+      %a{:href => "#"}
+        %img.media-object.img-circle{:alt => "...", :src => "#{@user.profile_picture}", :width => "45"}/
+    .media-body
+      %h5.media-heading
+        = @user.first_name
+        = @user.last_name
+        %br/
+        %span.small
+          BMS College Of Engineering
+    .status-text-holder
+      %textarea#status-text-holder{:placeholder => "Share something today..", :rows => "2"}
+      %button.btn.btn-sm.btn-default.pull-right#share-post-btn{"data-post-type" => "1"} Share
+      .loader.loader-inner.ball-pulse.pull-right#status-widget-loader.hidden
+        %div
+        %div
+        %div
