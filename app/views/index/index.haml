@@ -8,13 +8,13 @@
       .col-md-12
         .col-md-6
           .logo
-            %h1
+            %h2
               %span> C
               ollegetrends
           %img.img-hero{:src => "/assets/sprites/hero-image.png"}/
         .col-md-5
-          %h1.hero-text Connecting your college to you
-          %p.side-kick-text Connect. Explore. Get Hired
+          %h1.hero-text Connecting Colleges
+          %p.side-kick-text Join. Explore. Connect
           %p.hero-buttons
             %a.btn.btn-primary.btn-facebook{:href => "#{user_facebook_omniauth_authorize_path}"}
               %span.icon-facebook
@@ -23,15 +23,16 @@
               %span.icon-email
               Signup with Email
           %p.small-hero-text
-            By login in or signup you agree to our
-            %a{:href => ""} Terms
-            and
-            %a{:href => ""} privacy
-            policy.
-            Is your college not listed? Get it listed by clicking
-            %a{:href => "#"} here
-            %br/
-            © Collegetrends 2017
+            .hidden
+              By login in or signup you agree to our
+              %a{:href => ""} Terms
+              and
+              %a{:href => ""} privacy
+              policy.
+              Is your college not listed? Get it listed by clicking
+              %a{:href => "#"} here
+              %br/
+            © Collegetrends 2017 [BETA v1.0]
   .container-fluid
     .row
       .col-md-12

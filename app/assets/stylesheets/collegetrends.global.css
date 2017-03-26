@@ -28,6 +28,11 @@ a:active {
 	}
 }
 
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #FFF;
+}
+
 /* CSS LOADER */
 /* Loader css */
 /**
