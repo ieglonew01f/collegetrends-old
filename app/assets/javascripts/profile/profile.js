@@ -6,20 +6,22 @@ COLLEGETRENDS.PROFILE = (function() {
         aboutCharLimit = 80;
 
     var init = function() {
-        /*var post = new COLLEGETRENDS.POST(
+        var post = new COLLEGETRENDS.POST(
             {
                 statusTextInput: $('#status-text-holder'),
                 sharePostBtn: $('#share-post-btn'),
                 postContainer: $('.posts-container'),
                 root: $('.container')
             }
-        );*/
+        );
 
         eventListeners();
         setCharLimit();
     };
 
     var setCharLimit = function() {
+        if ($('#about').length === 0) return;
+        
         $('.char-limit').text(
             aboutCharLimit - $('#about').val().length
         );
