@@ -6,7 +6,7 @@
       = @user.first_name
       = @user.last_name
     %p.small
-      BMS College Of Engineering
+      = @user.college
     %p.small
       %b.text-primary 200
       Followers |
@@ -17,4 +17,4 @@
     %hr/
     %p
       %button.btn.btn-primary Edit profile
-      %button.btn.btn-default View profile
+      %a.btn.btn-default{:href => "/profile/#{@user.username}"} View profile

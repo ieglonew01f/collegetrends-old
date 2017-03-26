@@ -19,6 +19,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :setup do
+    collection do
+      get 'index'
+      post 'save'
+    end
+  end
+
   get 'profile/:username' => 'profile#index'
 
 end

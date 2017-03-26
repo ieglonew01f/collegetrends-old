@@ -7,19 +7,22 @@
       %span.info-label
         %span.icon.icon-location
         From
-      %span.text Dallas TX
+      %span.text
+        = @user.location
     %li
       %span.info-label
         %span.icon.icon-home
         Lives In
-      %span.text Pao Aulto
+      %span.text
+        = @user.home_town
     %li
       %span.info-label
         %span.icon.icon-heart-broken
         Relationship
-      %span.text Single
+      %span.text
     %li
       %span.info-label
         %span.icon.icon-pen
         Education
-      %span.text BMS College of Engineering
+      %span.text
+        = @user.college

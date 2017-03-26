@@ -17,7 +17,7 @@ class User < ApplicationRecord
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       candidate_username = auth.info.email.split('@')[0] + "_#{auth.uid}"
-      user.username = candidate_username.gsub!('.','_')
+      user.username = candidate_username.gsub('.','_')
       user.profile_picture = auth.info.image
 
       # Others
