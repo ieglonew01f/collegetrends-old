@@ -7,14 +7,18 @@ Rails.application.routes.draw do
 
   root 'index#index'
 
-
-
   resources :post_likes
   resources :messages
   resources :followers
   resources :posts
   resources :users
 
-  get '/home' => "home#index"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :home do
+    collection do
+      get 'index'
+    end
+  end
+
+  get 'profile/:username' => 'profile#index'
+
 end

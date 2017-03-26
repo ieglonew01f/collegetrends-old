@@ -1,6 +1,6 @@
 .well.well-md.well-card.well-profile-sm
   .header.text-center
-    %a{:href => "#"}
+    %a{:href => "/profile/#{@user.username}"}
       %img.img-circle{:alt => "...", :src => "#{@user.profile_picture}", :width => "60"}/
     %h4
       = @user.first_name

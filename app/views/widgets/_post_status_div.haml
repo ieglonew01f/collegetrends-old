@@ -1,7 +1,7 @@
 .well.well-sm.well-card.well-status-post
   .media
     .media-left
-      %a{:href => "#"}
+      %a{:href => "/profile/#{@user.username}"}
         %img.media-object.img-circle{:alt => "...", :src => "#{@user.profile_picture}", :width => "45"}/
     .media-body
       %h5.media-heading

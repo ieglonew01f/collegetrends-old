@@ -3,7 +3,7 @@
     .body
       .media
         .media-left
-          %a{:href => "#"}
+          %a{:href => "/profile/{{user.username}}"}
             %img.media-object.img-circle{:alt => "...", :src => "{{user.profile_picture}}", :width => "35"}/
           %span.icon.icon-heart.like-btn.text-muted{"data-like-id" => "0"}
         .media-body

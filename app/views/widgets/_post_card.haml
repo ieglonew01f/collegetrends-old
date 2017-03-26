@@ -3,7 +3,7 @@
     .body
       .media
         .media-left
-          %a{:href => "#"}
+          %a{:href => "/profile/#{post.user.username}"}
             %img.media-object.img-circle{:alt => "...", :src => "#{post.user.profile_picture}", :width => "35"}/
           - if PostLike.where('post_id = ? AND liked_by = ?', post.id, current_user.id).first.nil?
             %span.icon.icon-heart.like-btn.text-muted{"data-liked" => "0"}
