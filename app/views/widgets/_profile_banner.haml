@@ -1,0 +1,41 @@
+.well.well-lg.well-card.well-profile-card
+  .row
+    .col-md-4.verticle-line
+      .media.profile-header
+        .media-left
+          %a{:href => "/profile/#{@user.username}"}
+            %img.media-object.img-circle{:alt => "...", :src => "#{@user.profile_picture}?type=normal", :width => "80", :height => "80"}/
+        .media-body
+          %h4.media-heading
+            = @user.first_name
+            = @user.last_name
+          %span.small BMS College of Engineerinng
+          %p If you are seeing this line, it means that the pre-saved draft was
+    .col-md-8
+      .stats
+        %ul.list-inline.list-unstyled
+          %li
+            %ul.list-inline.list-unstyled
+              %li.text-center
+                %span.number 3421
+                %br/
+                %span.number-label Followers
+              %li.text-center
+                %span.number 2444
+                %br/
+                %span.number-label Following
+              %li.text-center
+                %span.number 1078
+                %br/
+                %span.number-label Photos
+              %li.text-center
+                %span.number 2354
+                %br/
+                %span.number-label Videos
+          %li
+            .meta-buttons
+              %ul.list-unstyled
+                %li
+                  %button.btn.btn-primary.send-message.btn-width-std Send Message
+                %li
+                  %button.btn.btn-default.btn-width-std Follow
