@@ -27,5 +27,12 @@ Rails.application.routes.draw do
   end
 
   get 'profile/:username' => 'profile#index'
+  get 'profile/:username/edit' => 'profile#edit'
+
+  resources :profile do
+    collection do
+      patch 'update'
+    end
+  end
 
 end

@@ -16,5 +16,5 @@
       Friends
     %hr/
     %p
-      %button.btn.btn-primary Edit profile
+      %a.btn.btn-primary{:href => "/profile/#{@user.username}/edit"} Edit profile
       %a.btn.btn-default{:href => "/profile/#{@user.username}"} View profile

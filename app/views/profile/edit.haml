@@ -1,0 +1,56 @@
+- content_for :title do
+  Edit profile
+- content_for :pagecss do
+  - stylesheet_link_tag "home/home.css", "profile/profile.css"
+= render "common/session_nav_bar"
+- content_for :body do
+  .container
+    .row
+      .col-md-4
+        = render "widgets/mini_profile_card"
+      .col-md-8
+        .well.well-sm.well-card.well-edit-profile
+          .row
+            .col-md-12
+              .alert.alert-warning#alert-char-limit{:role => "alert", :hidden => "true"}
+                %strong Warning!
+                You have exceeded the character limit of your bio, please make sure that your bio is under 80 characters before saving, we can handle only so much for now :)
+              .alert.alert-success#alert-update-success{:role => "alert", :hidden => "true"}
+                %strong Success!
+                Your profile has been updated successfully.
+
+              .form-inner
+                %h4 Account settings
+                .form-group
+                  %label Email
+                  %input.form-control#email{:name => "email", :placeholder => "Email", :type => "text", :disabled => "disabled", :value => "#{@user.email}"}/
+                .form-group
+                  %label College
+                  %input.form-control#college{:name => "college", :placeholder => "College", :type => "text", :disabled => "disabled", :value => "#{@user.college}"}/
+                .form-group
+                  %label First Name
+                  %input.form-control#first_name{:name => "first_name", :placeholder => "First Name", :type => "text", :value => "#{@user.first_name}"}/
+                .form-group
+                  %label Last Name
+                  %input.form-control#last_name{:name => "last_name", :placeholder => "Last Name", :type => "text", :value => "#{@user.last_name}"}/
+                .form-group
+                  %label Username
+                  %input.form-control#username{:name => "username", :placeholder => "Username", :type => "text", :value => "#{@user.username}"}/
+                %hr/
+                %h4 Basic Profile Info
+                .form-group
+                  %label Location
+                  %input.form-control#location{:name => "location", :placeholder => "Location", :type => "text", :value => "#{@user.location}"}/
+                .form-group
+                  %label Home Town
+                  %input.form-control#home_town{:name => "home_town", :placeholder => "Home Town", :type => "text", :value => "#{@user.home_town}"}/
+                .form-group
+                  %label About
+                  %span.char-limit 80
+                  %textarea.form-control#about{:name => "about", :placeholder => "About", :type => "text", :rows => "4"}
+                    = @user.about
+                %button.btn.btn-default.pull-right#update-profile Update Profile
+
+
+- content_for :pagejs do
+  - javascript_include_tag "profile/profile.js"
