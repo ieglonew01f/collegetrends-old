@@ -1,0 +1,50 @@
+- content_for :title do
+  Setup
+- content_for :pagecss do
+  - stylesheet_link_tag "home/home.css", "setup/setup.css"
+= render "common/session_nav_bar"
+- content_for :body do
+  .container
+    .row
+      .col-md-12
+        .setup-container
+          .header-text.text-center
+            %h4 Almost there, we just need a few other info
+          .well.well-sm.well-card.well-setup
+            .row
+              .col-md-5
+                .header.text-center
+                  %a{:href => "/profile/#{@user.username}"}
+                    %img.img-circle{:alt => "...", :src => "#{@user.profile_picture}", :width => "60"}/
+                  %h4
+                    = @user.first_name
+                    = @user.last_name
+                  %p.small
+                    %b
+                      = @user.username
+                  %p.about
+                    = @user.about
+              .col-md-7.setup-form
+                .alert.alert-warning.alert-dismissible#alert-char-limit{:role => "alert", :hidden => "true"}
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                  %strong Warning!
+                  You have exceeded the character limit of your bio, please make sure that your bio is under 80 characters before saving, we can handle only so much for now :)
+
+                .form-inner
+                  .form-group
+                    %label{:for => "college"} College
+                    %select.form-control#college
+                      %option BMS College of Engineering
+                      %option ITM Vadodara
+                  .form-group
+                    %label{:for => "home-town"} Hometown
+                    %input.form-control#home-town{:name => "hometown", :placeholder => "Where are you from ?", :type => "text"}/
+                  .form-group
+                    %label{:for => "about"} About
+                    %textarea#about.form-control{:placeholder => "Describe about youself a little..", :rows => "4"}
+                  %button.btn.btn-default.pull-right#save-setup Save
+                  %span.pull-right.char-limit 80
+
+- content_for :pagejs do
+  - javascript_include_tag "setup/setup.js"
