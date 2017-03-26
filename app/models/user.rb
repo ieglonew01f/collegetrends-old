@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :messages, foreign_key: "by_id"
   has_many :post_likes, foreign_key: "liked_by"
+  has_many :followers, foreign_key: "following_id"
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

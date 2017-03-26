@@ -21,13 +21,17 @@ COLLEGETRENDS.PROFILE = (function() {
 
     var setCharLimit = function() {
         if ($('#about').length === 0) return;
-        
+
         $('.char-limit').text(
             aboutCharLimit - $('#about').val().length
         );
     };
 
     var eventListeners = function() {
+        $('.follow-unfollow-user').on('click', function() {
+            handleUserFollow($(this));
+        });
+
         $("#update-profile").on('click', function() {
             updateProfile($(this));
         });
@@ -111,6 +115,72 @@ COLLEGETRENDS.PROFILE = (function() {
                 }
             }
         };
+
+        utils.sendAjax(options, handlers);
+    };
+
+    var handleUserFollow = function(self) {
+        var action = self.attr('data-action'),
+            followingId = self.attr('data-profile-id'),
+            options,
+            handlers;
+
+        self.blur();
+
+        if (action === 'follow') {
+            handlers = {
+                beforeSend: function() {
+                    self.text('Following');
+                    self.attr('data-action', 'following');
+                },
+                success: function(response) {
+
+                },
+                error: function() {
+
+                },
+                complete: function() {
+
+                }
+            };
+
+            options = {
+                requestType: 'POST',
+                requestURL: '/followers',
+                requestData: {
+                    follower: {
+                        following_id: followingId
+                    }
+                }
+            };
+        }
+        else if (action === 'following') {
+            handlers = {
+                beforeSend: function() {
+                    self.text('Follow');
+                    self.attr('data-action', 'follow');
+                },
+                success: function(response) {
+
+                },
+                error: function() {
+
+                },
+                complete: function() {
+
+                }
+            };
+
+            options = {
+                requestType: 'DELETE',
+                requestURL: '/followers/' + followingId,
+                requestData: {
+                    follower: {
+                        following_id: followingId
+                    }
+                }
+            };
+        }
 
         utils.sendAjax(options, handlers);
     };

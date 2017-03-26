@@ -19,25 +19,36 @@
           %li
             %ul.list-inline.list-unstyled
               %li.text-center
-                %span.number 3421
+                %span.number
+                  = @user.followers.count
                 %br/
                 %span.number-label Followers
               %li.text-center
-                %span.number 2444
+                %span.number
+                  = Follower.where('follower_id = ?', @user.id).count
                 %br/
                 %span.number-label Following
               %li.text-center
-                %span.number 1078
+                %span.number 0
                 %br/
                 %span.number-label Photos
               %li.text-center
-                %span.number 2354
+                %span.number 0
                 %br/
                 %span.number-label Videos
-          %li
+          %li.profile-buttons
             .meta-buttons
               %ul.list-unstyled
-                %li
-                  %button.btn.btn-primary.send-message.btn-width-std Send Message
-                %li
-                  %button.btn.btn-default.btn-width-std Follow
+                - if current_user.id == @user.id
+                  %li
+                    %button.btn.btn-primary.send-message.btn-width-std.disabled Messages
+                  %li
+                    %a.btn.btn-default.send-message.btn-width-std{:href => "/profile/#{@user.username}/edit"} Edit profile
+                - else
+                  %li
+                    %button.btn.btn-primary.send-message.btn-width-std.disabled Send Message
+                  %li
+                    - if @isCurrentUserFollowingProfileId == false
+                      %button.btn.btn-default.btn-width-std.follow-unfollow-user{"data-action" => "following", "data-profile-id" => "#{@user.id}"} Following
+                    - else
+                      %button.btn.btn-default.btn-width-std.follow-unfollow-user{"data-action" => "follow", "data-profile-id" => "#{@user.id}"} Follow

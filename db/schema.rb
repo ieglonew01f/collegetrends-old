@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326072248) do
+ActiveRecord::Schema.define(version: 20170326195104) do
 
   create_table "followers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "follower_id"
     t.integer  "following_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["follower_id", "following_id"], name: "index_followers_on_follower_id_and_following_id", unique: true, using: :btree
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

@@ -8,12 +8,13 @@
     %p.small
       = @user.college
     %p.small
-      %b.text-primary 200
-      Followers |
-      %b.text-primary 20
-      Following |
-      %b.text-primary 23
-      Friends
+      %b.text-primary
+        = @user.followers.count
+      Followers
+      |
+      %b.text-primary
+        = Follower.where('follower_id = ?', @user.id).count
+      Following
     %hr/
     %p
       %a.btn.btn-primary{:href => "/profile/#{@user.username}/edit"} Edit profile
