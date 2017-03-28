@@ -24,7 +24,7 @@
             = time_ago_in_words(post.created_at)
             ago
           %p
-            = post.content
+            = post.content.html_safe
     .footer
       %ul.list-unstyled.list-inline
         %li

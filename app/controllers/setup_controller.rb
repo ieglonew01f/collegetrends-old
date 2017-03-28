@@ -1,6 +1,10 @@
 class SetupController < ApplicationController
+  require 'json'
+
   def index
       @user = User.find_by_id(current_user.id)
+      college_list = Setting.find_by_setting_name("college_list")
+      @college_list = college_list.setting_value.split(',')
   end
 
   def save

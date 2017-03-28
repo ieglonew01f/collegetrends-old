@@ -35,8 +35,9 @@
                   .form-group
                     %label{:for => "college"} College
                     %select.form-control#college
-                      %option BMS College of Engineering
-                      %option ITM Vadodara
+                      - @college_list.each do |college|
+                        %option
+                          = college
                   .form-group
                     %label{:for => "home-town"} Hometown
                     %input.form-control#home-town{:name => "hometown", :placeholder => "Where are you from ?", :type => "text"}/

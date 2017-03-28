@@ -50,13 +50,16 @@ COLLEGETRENDS.POST = function(options) {
                 }
             };
 
+            // preserve line breaks
+            var postTextPreserved = postText.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+
             var options = {
                 requestType: 'POST',
                 requestURL: '/posts',
                 requestData: {
                     post: {
                         post_type: postType,
-                        content: postText
+                        content: postTextPreserved
                     }
                 }
             };
