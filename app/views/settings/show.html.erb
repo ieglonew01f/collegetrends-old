@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Setting name:</strong>
+  <%= @setting.setting_name %>
+</p>
+
+<p>
+  <strong>Setting value:</strong>
+  <%= @setting.setting_value %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>
