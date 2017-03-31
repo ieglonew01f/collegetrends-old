@@ -5,6 +5,14 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+
+    respond_to do |format|
+      if @users
+        format.json { render :json => { :status => 200, :users => @users } }
+      else
+        format.json { render :json => { :status => :unprocessable_entity, :errors => 'something went wrong :(' } }
+      end
+    end
   end
 
   # GET /users/1
@@ -59,6 +67,10 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def get_followers
+    # do stuff here
   end
 
   private

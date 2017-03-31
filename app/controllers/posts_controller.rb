@@ -11,7 +11,7 @@ class PostsController < ApplicationController
       if post.save
         format.json { render :json => { :status => 200, :message => 'Post has been created successfully', :post => post, :post_user => post_user } }
       else
-        format.json { render json => { :status => :unprocessable_entity, :errors => post.errors } }
+        format.json { render :json => { :status => :unprocessable_entity, :errors => post.errors } }
       end
     end
   end
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       if post.delete
         format.json { render :json => { :status => 200, :message => 'Post has been deleted successfully', :post => post} }
       else
-        format.json { render json => { :status => :unprocessable_entity, :errors => post.errors } }
+        format.json { render :json => { :status => :unprocessable_entity, :errors => post.errors } }
       end
     end
   end

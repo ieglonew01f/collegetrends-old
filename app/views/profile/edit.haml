@@ -1,8 +1,9 @@
 - content_for :title do
   Edit profile
 - content_for :pagecss do
-  - stylesheet_link_tag "home/home.css", "profile/profile.css"
+  - stylesheet_link_tag "home/home.css", "profile/profile.css", "chat/chat.css"
 = render "common/session_nav_bar"
+= render "common/sidebar"
 - content_for :body do
   .container
     .row
@@ -53,4 +54,4 @@
 
 
 - content_for :pagejs do
-  - javascript_include_tag "profile/profile.js"
+  - javascript_include_tag "profile/profile.js", "chat/chat.js"

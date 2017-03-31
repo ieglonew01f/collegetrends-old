@@ -15,4 +15,6 @@
 //= require bootstrap/bootstrap.js
 //= require handlebars/handlebars.js
 
+//= require cable.js
+
 //= require lib/utils/utils.js

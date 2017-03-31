@@ -4,6 +4,7 @@ COLLEGETRENDS.HOME = (function() {
     'use strict';
 
     var init = function() {
+        //init posts
         var post = new COLLEGETRENDS.POST(
             {
                 statusTextInput: $('#status-text-holder'),
@@ -12,6 +13,9 @@ COLLEGETRENDS.HOME = (function() {
                 root: $('.container')
             }
         );
+
+        //init chat
+        var chat = new COLLEGETRENDS.CHAT();
     };
 
     return {

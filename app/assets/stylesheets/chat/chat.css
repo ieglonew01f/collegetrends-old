@@ -1,0 +1,149 @@
+.chat-panel {
+    width: 250px;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    z-index: 999;
+    background: #FFF;
+    top: 0;
+    border-right: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+}
+
+.chat-panel .header {
+    padding: 15px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #efefef;
+}
+
+.chat-panel .img-circle {
+    margin-left: 50px;
+}
+
+.chat-panel .header .clabel {
+    padding-left: 65px;
+    font-weight: bold;
+}
+
+.chat-panel .new-message {
+    padding: 20px;
+    background: #4c77a4;
+    color: #FFF;
+}
+
+.chat-panel .people-thumb {
+    width: 64px;
+    height: 64px;
+}
+
+.chat-panel .mood {
+    font-weight: bold;
+    font-size: 9px;
+    color: #c3c3c3;
+}
+
+.chat-panel .people-info {
+    border-left: 5px solid #b5b5b5;
+    margin-left: 9px;
+    height: 64px;
+}
+
+.chat-panel .person-online {
+    border-left: 5px solid #49d85a;
+}
+
+.chat-panel .person-busy {
+    border-left: 5px solid #f75252;
+}
+
+.chat-panel .name {
+    font-weight: bold;
+    color: #4c4c4c;
+    margin-bottom: 0
+}
+
+.chat-panel .person {
+    border-bottom: 1px solid #e8e8e8;
+    cursor: pointer;
+}
+
+.chat-panel .person:hover {
+    background: #f3f3f3;
+}
+
+.chat-panel .last-chat{
+    position: relative;
+    left: 51px;
+    top: 7px;
+    font-weight: bold;
+    font-size: 9px;
+    color: #c3c3c3;
+}
+
+.chat-panel .online-caret {
+    background: #49d85a;
+    border-radius: 10px;
+    height: -12px;
+    height: 12px;
+    width: 12px;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 35px;
+}
+
+.private-chat-box {
+    position: absolute;
+    left: 265px;
+    z-index: 9999;
+    background: #FFF;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    width: 290px;
+    border-bottom: 0;
+    bottom: 0;
+    border-top: 2px solid #49d85a;
+}
+
+.private-chat-box .private-box-header {
+    padding: 10px;
+}
+
+.private-chat-box .img-circle {
+    margin-left: 0;
+}
+
+.private-chat-box .fwn {
+    font-weight: normal;
+}
+
+.private-chat-box .messages {
+    height: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+    background: #efefef;
+    padding: 15px;
+}
+
+.private-chat-box .text-message {
+    background: #f7f7f7;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 15px;
+    margin-left: 45px;
+    margin-bottom: 10px;
+}
+
+.private-chat-box .incomming-message {
+    margin-left: 0;
+    margin-right: 45px;
+    background: #FFF;
+}
+
+.private-chat-box .message-input {
+    border: 0;
+    outline: 0;
+    padding: 15px;
+    font-size: 12px;
+    width: 100%;
+}

@@ -1,0 +1,13 @@
+%script#private-chat-box-template{:type => "text/x-handlebars-template"}
+  .private-chat-box{:style => "left:{{position}}px"}
+    .private-box-header
+      .media
+        .media-left
+          %img.media-object.img-circle{:src => "{{picture}}", :width => "34"}/
+        .media-body
+          %h5.media-heading.fwn {{firstName}} {{lastName}}
+    .messages
+      .rows
+
+    .input
+      %input.message-input{:name => "message", :type => "text", "data-user-id" => "{{id}}"}/

@@ -1,0 +1,13 @@
+.chat-panel{"data-current-user-id" => "#{@user.id}"}
+  .header
+    %span.icon-list
+    %span.clabel CHAT
+    %span
+      %a{:href => "/profile/#{@user.username}"}
+        %img.img-circle{:alt => "...", :src => "#{@user.profile_picture}", :width => "35"}/
+        %span.online-caret
+  .chat-people-holder
+  .private-chat-box-holder
+
+= render "templates/chat_people_template"
+= render "templates/chat_box_template"

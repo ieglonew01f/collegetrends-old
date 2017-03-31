@@ -1,8 +1,9 @@
 - content_for :title do
   Profile
 - content_for :pagecss do
-  - stylesheet_link_tag "home/home.css", "profile/profile.css"
+  - stylesheet_link_tag "home/home.css", "profile/profile.css", "chat/chat.css"
 = render "common/session_nav_bar"
+= render "common/sidebar"
 - content_for :body do
   .container
     .row
@@ -20,4 +21,4 @@
   = render "templates/post_card_template"
 
 - content_for :pagejs do
-  - javascript_include_tag "lib/post/post.js", "profile/profile.js"
+  - javascript_include_tag "lib/post/post.js", "profile/profile.js", "chat/chat.js"
