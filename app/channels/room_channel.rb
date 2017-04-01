@@ -1,10 +1,35 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
+    stream_from "conversation_master_channel"
     stream_from "conversation_#{params['conversation_id']}_channel" #conversation_id comes from room.coffee App.cable.subscriptions.create
   end
 
+  def connected(data)
+    logger.info("============== CONNECTED =================")
+    logger.info(data)
+
+    ActionCable.server.broadcast "conversation_master_channel", data: data
+
+    #set the user online
+    user = User.find(data["user_id"])
+    user.online = 1
+    user.save
+  end
+
   def unsubscribed
+
+  end
+
+  def disconnected(data)
     # Any cleanup needed when channel is unsubscribed
+    logger.info("============== DISCONNECTED =================")
+
+    ActionCable.server.broadcast "conversation_master_channel", data: data
+
+    #set the user online
+    user = User.find(data["user_id"])
+    user.online = 0
+    user.save
   end
 
   def speak(data)

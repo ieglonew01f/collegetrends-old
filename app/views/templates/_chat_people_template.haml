@@ -1,13 +1,11 @@
 %script#people-list-template{:type => "text/x-handlebars-template"}
-  {{#each users}}
-  .person{"data-user-id" => "{{this.id}}", "data-username" => "{{this.username}}", "data-picture" => "{{this.profile_picture}}", "data-first-name" => "{{this.first_name}}", "data-last-name" => "{{this.last_name}}"}
+  .person{"data-user-id" => "{{id}}", "data-username" => "{{username}}", "data-picture" => "{{profile_picture}}", "data-first-name" => "{{first_name}}", "data-last-name" => "{{last_name}}", :class => "{{online}}"}
     .row
       .col-xs-3
-        %img.people-thumb{:src => "{{this.profile_picture}}"}/
-      .col-xs-6.people-info.person-online
+        %img.people-thumb{:src => "{{profile_picture}}"}/
+      .col-xs-6.people-info
         %span.small.mood HAPPY
         %span.small.last-chat.pull-right 5 min ago
         %p.name
-          {{this.first_name}}
+          {{first_name}}
         %i.small Hey wassup
-  {{/each}}

@@ -76,12 +76,24 @@ COLLEGETRENDS.CHAT = function() {
     };
 
     var drawPeopleList = function(users) {
-        var peopleListTemplate = utils.getTemplate($('#people-list-template'));
-        var peopleHtml = peopleListTemplate({
-            users: users
+        var peopleListTemplate = utils.getTemplate($('#people-list-template')),
+            peopleHtml = [];
+
+        $.each(users, function (i, user) {
+            if (user.id == $('.chat-panel').attr('data-current-user-id')) return true;
+
+            peopleHtml.push(peopleListTemplate({
+                id: user.id,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                username: user.username,
+                profile_picture: user.profile_picture,
+                online: (!user.online || user.online !== 1) ? 'hidden' : 'online'
+            }));
         });
 
-        $('.chat-people-holder').html(peopleHtml);
+
+        $('.chat-people-holder').html(peopleHtml.join(' '));
     };
 
     var openChatWindow = function (self) {
@@ -127,12 +139,26 @@ COLLEGETRENDS.CHAT = function() {
             channel: "RoomChannel",
             conversation_id: $('.chat-panel').attr('data-current-user-id') //need to make this more safe prob replace with a unique user hash
         }, {
-            connected: function() {},
-            disconnected: function() {},
+            connected: function() {
+                return this.perform('connected', {
+                    user_id: $('.chat-panel').attr('data-current-user-id')
+                });
+            },
+            disconnected: function() {
+                return this.perform('connected', {
+                    user_id: $('.chat-panel').attr('data-current-user-id')
+                });
+            },
             received: function(data) {
-                root.find('.messages .rows').append(
-                    data.message
-                );
+                if (data && data.data && data.data.action === 'connected') {
+                    setOnline(data.data.user_id);
+                }
+                else if (data && data.data && data.data.action === 'disconnected') {
+                    setOffline(data.data.user_id);
+                }
+                else {
+                    recieveMessage(data);
+                }
             },
             speak: function(message, for_id) {
                 return this.perform('speak', {
@@ -146,6 +172,61 @@ COLLEGETRENDS.CHAT = function() {
 
     var sendMessage = function (options) {
         App.room.speak(options.message, options.for_id);
+
+        //show message for self
+        var thisChatPersonWindow = $('.private-chat-box-holder').find('.private-chat-box[data-user-id="' + options.for_id + '"]');
+
+        thisChatPersonWindow.find('.messages .rows').append(
+            $('<div/>')
+                .addClass('outgoing-message text-message')
+                .text(options.message)
+        );
+
+        thisChatPersonWindow.find('.messages').scrollTop(thisChatPersonWindow.find('.messages')[0].scrollHeight);
+    };
+
+    var recieveMessage = function(data) {
+        var forId = data.message.for_id,
+            byId = data.message.by_id,
+            message = data.message.message;
+
+        var thisPerson = $('.chat-people-holder').find('.person[data-user-id="' + byId + '"]'),
+            thisChatPersonWindow = $('.private-chat-box-holder').find('.private-chat-box[data-user-id="' + byId + '"]');
+
+        var isforIdChatAlreadyOpen = thisChatPersonWindow.length;
+
+        //not already open then open it
+        if (isforIdChatAlreadyOpen === 0) {
+            openChatWindow(thisPerson);
+        }
+
+        //otherwise find and append
+        $('.private-chat-box-holder').find('.private-chat-box[data-user-id="' + byId + '"]').find('.messages .rows').append(
+            $('<div/>')
+                .addClass('incomming-message text-message')
+                .text(message)
+        );
+
+        $('.private-chat-box-holder')
+            .find('.private-chat-box[data-user-id="' + byId + '"]')
+            .find('.messages')
+            .scrollTop(
+                $('.private-chat-box-holder')
+                    .find('.private-chat-box[data-user-id="' + byId + '"]')
+                    .find('.messages')[0].scrollHeight
+            );
+    };
+
+    var setOnline = function (userId) {
+        $('.chat-people-holder').find('.person[data-user-id="' + userId + '"]')
+            .removeClass('online, hidden')
+            .addClass('online');
+    };
+
+    var setOffline = function (userId) {
+        $('.chat-people-holder').find('.person[data-user-id="' + userId + '"]')
+            .removeClass('online, hidden')
+            .addClass('hidden');
     };
 
     init();

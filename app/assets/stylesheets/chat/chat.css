@@ -48,11 +48,11 @@
     height: 64px;
 }
 
-.chat-panel .person-online {
+.chat-panel .person.online .people-info {
     border-left: 5px solid #49d85a;
 }
 
-.chat-panel .person-busy {
+.chat-panel .person.busy .people-info {
     border-left: 5px solid #f75252;
 }
 
