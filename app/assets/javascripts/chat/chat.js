@@ -35,12 +35,22 @@ COLLEGETRENDS.CHAT = function() {
                 var message = self.val();
                 var userId = self.attr('data-user-id');
 
-                sendMessage({
-                    for_id: userId,
-                    message: message
-                });
+                if ($.trim(message) !== '') {
+                    sendMessage({
+                        for_id: userId,
+                        message: message
+                    });
 
-                self.val('');
+                    self.val('');
+                    sendIsTyping($(this), false);
+                }
+            }
+
+            if ($.trim($(this).val()) === '') {
+                sendIsTyping($(this), false);
+            }
+            else {
+                sendIsTyping($(this), true);
             }
         });
     };
@@ -103,6 +113,8 @@ COLLEGETRENDS.CHAT = function() {
         var picture = self.attr('data-picture');
         var id = self.attr('data-user-id');
 
+        if ($('.private-chat-box-holder').find('.private-chat-box[data-user-id="' + id + '"]').length > 0) return;
+
         var privateChatBoxTemplate = utils.getTemplate($('#private-chat-box-template'));
 
         var chatBoxHtml = privateChatBoxTemplate({
@@ -115,6 +127,11 @@ COLLEGETRENDS.CHAT = function() {
         });
 
         $('.private-chat-box-holder ').append(chatBoxHtml);
+
+        $('.private-chat-box-holder')
+            .find('.private-chat-box[data-user-id="' + id + '"]')
+            .find('.message-input')
+            .focus();
     };
 
     var getChatDrawPosition = function () {
@@ -156,9 +173,19 @@ COLLEGETRENDS.CHAT = function() {
                 else if (data && data.data && data.data.action === 'disconnected') {
                     setOffline(data.data.user_id);
                 }
+                else if (data && data.data && data.data.action === 'is_typing') {
+                    toggleIsTyping(data.data.by_id, data.data.is_typing);
+                }
                 else {
                     recieveMessage(data);
                 }
+            },
+            is_typing: function (for_id, is_typing) {
+                return this.perform('is_typing', {
+                    for_id: for_id,
+                    by_id: $('.chat-panel').attr('data-current-user-id'),
+                    is_typing: is_typing
+                });
             },
             speak: function(message, for_id) {
                 return this.perform('speak', {
@@ -200,6 +227,11 @@ COLLEGETRENDS.CHAT = function() {
             openChatWindow(thisPerson);
         }
 
+        $('.private-chat-box-holder')
+            .find('.private-chat-box[data-user-id="' + byId + '"]')
+            .find('.is-typing')
+            .addClass('hidden');
+
         //otherwise find and append
         $('.private-chat-box-holder').find('.private-chat-box[data-user-id="' + byId + '"]').find('.messages .rows').append(
             $('<div/>')
@@ -227,6 +259,28 @@ COLLEGETRENDS.CHAT = function() {
         $('.chat-people-holder').find('.person[data-user-id="' + userId + '"]')
             .removeClass('online, hidden')
             .addClass('hidden');
+    };
+
+    var sendIsTyping = function (self, isTyping) {
+        App.room.is_typing(self.attr('data-user-id'), isTyping);
+    };
+
+    var toggleIsTyping = function (user_id, isTyping) {
+        var thisChatBox = $('.private-chat-box-holder')
+            .find('.private-chat-box[data-user-id="' + user_id + '"]');
+
+        if (isTyping) {
+            thisChatBox
+                .find('.is-typing')
+                .removeClass('hidden');
+        }
+        else {
+            thisChatBox
+                .find('.is-typing')
+                .removeClass('hidden')
+                .addClass('hidden');
+        }
+
     };
 
     init();

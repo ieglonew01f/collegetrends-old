@@ -107,6 +107,7 @@
 
 .private-chat-box .private-box-header {
     padding: 10px;
+    height: 54px;
 }
 
 .private-chat-box .img-circle {
@@ -115,6 +116,7 @@
 
 .private-chat-box .fwn {
     font-weight: normal;
+    margin-bottom: 0;
 }
 
 .private-chat-box .messages {

@@ -32,6 +32,10 @@ class RoomChannel < ApplicationCable::Channel
     user.save
   end
 
+  def is_typing(data)
+    ActionCable.server.broadcast "conversation_#{data["for_id"]}_channel", data: data
+  end
+
   def speak(data)
     Message.create! message: data['message'], for_id: data['for_id'], by_id: data['by_id']
   end
