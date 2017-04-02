@@ -20,16 +20,20 @@
             %img.img-hero{:src => "/assets/sprites/hero-image.png"}/
         .col-md-3
           .well.well-login
-            %form.form-horizontal
-              %fieldset
-                .form-group
-                  %input#email-login.input-vk{:placeholder => "Email", :type => "text"}/
-                .form-group
-                  %input#email-login.input-vk.hidden
-                  %input#password-login.input-vk{:placeholder => "Password", :type => "password"}/
-                .form-group.nmb
-                  %button.btn.btn-sm.btn-primary.btn-login Login
-
+            .signin-inner
+              %form.form-horizontal
+                %fieldset
+                  .form-group
+                    %input#email-login.input-vk{:placeholder => "Email", :type => "text"}/
+                  .form-group
+                    %input#email-login.input-vk.hidden
+                    %input#password-login.input-vk{:placeholder => "Password", :type => "password"}/
+                  .form-group.nmb
+                    %button.btn.btn-sm.btn-primary.btn-login Login
+            .signup-facebook
+              %a{:href => "#{user_facebook_omniauth_authorize_path}"}
+                %span.icon-facebook
+                Sign in with facebook
           .well.well-signup
             .signup-masthead
               Signup and stay connected
@@ -59,10 +63,6 @@
                     Female
                 .form-group
                   %input.btn.btn-success.wf{:name => "commit", :type => "submit", :value => "Signup"}
-            .signup-facebook
-              %a{:href => "#{user_facebook_omniauth_authorize_path}"}
-                %span.icon-facebook
-                Sign in with facebook
 
     .row
       %hr/

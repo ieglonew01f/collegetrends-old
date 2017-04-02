@@ -158,13 +158,18 @@ hr {
 
 .well-login,
 .well-signup {
-    padding: 35px;
+    padding: 0px;
     position: relative;
     background: #fff;
     border-radius: 2px;
     box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
     border: 0;
     width: 320px;
+}
+
+.signin-inner {
+    padding: 35px;
+    padding-bottom: 16px;
 }
 
 #first-name {
