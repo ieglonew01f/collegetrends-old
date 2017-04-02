@@ -2,41 +2,74 @@
   Connecting your college to you
 - content_for :pagecss do
   - stylesheet_link_tag "index/index.css"
+
+= render "common/nav_bar"
+
 - content_for :body do
   .container
     .row
-      .col-md-12
-        .col-md-6
-          .logo
-            %h2
-              %span> C
-              ollegetrends
-          %img.img-hero{:src => "/assets/sprites/hero-image.png"}/
-        .col-md-5
-          %h1.hero-text Connecting Colleges
-          %p.side-kick-text Join. Explore. Connect
-          %p.hero-buttons
-            %a.btn.btn-primary.btn-facebook{:href => "#{user_facebook_omniauth_authorize_path}"}
-              %span.icon-facebook
-              Login with Facebook
-            %button.btn.btn-default.btn-email.hidden
-              %span.icon-email
-              Signup with Email
-          %p.small-hero-text
-            .hidden
-              By login in or signup you agree to our
-              %a{:href => ""} Terms
-              and
-              %a{:href => ""} privacy
-              policy.
-              Is your college not listed? Get it listed by clicking
-              %a{:href => "#"} here
-              %br/
-            © Collegetrends 2017 [Alpha v1.0]
-  .container-fluid
+      .col-md-12.mt60
+        .col-md-8.text-center
+          .hero-text
+            %p
+              Connecting your college to you
+            %p.small.fw14
+              A social network exclusively for college students, we will help you stay in touch with your college friends
+              and more. Join. Explore. Connect. For free !
+          .hero-image
+            %img.img-hero{:src => "/assets/sprites/hero-image.png"}/
+        .col-md-3
+          .well.well-login
+            %form.form-horizontal
+              %fieldset
+                .form-group
+                  %input#email-login.input-vk{:placeholder => "Email", :type => "text"}/
+                .form-group
+                  %input#email-login.input-vk.hidden
+                  %input#password-login.input-vk{:placeholder => "Password", :type => "password"}/
+                .form-group.nmb
+                  %button.btn.btn-sm.btn-primary.btn-login Login
+
+          .well.well-signup
+            .signup-masthead
+              Signup and stay connected
+            = form_for(@user) do |f|
+              - if @user.errors.any?
+                #error_explanation
+                  %h2
+                    = pluralize(@user.errors.count, "error")
+                    prohibited this user from being saved:
+                  %ul
+                    - @user.errors.full_messages.each do |message|
+                      %li= message
+              %fieldset
+                .form-group
+                  %input#first-name.input-vk{:placeholder => "First Name", :type => "text", :name => "user[first_name]"}/
+                  %input#last-name.input-vk{:placeholder => "Last Name", :type => "text", :name => "user[last_name]"}/
+                .form-group
+                  %input#email-signup.input-vk{:placeholder => "Email", :type => "text", :name => "user[email]"}/
+                .form-group
+                  %input#password-signup.input-vk{:placeholder => "Password", :type => "password", :name => "user[password]"}/
+                .form-group
+                  %label.radio-inline
+                    %input#male{:checked => "checked", :name => "user[gender]", :type => "radio", :value => "1"}/
+                    Male
+                  %label.radio-inline
+                    %input#female{:name => "user[gender]", :type => "radio", :value => "0"}/
+                    Female
+                .form-group
+                  %input.btn.btn-success.wf{:name => "commit", :type => "submit", :value => "Signup"}
+            .signup-facebook
+              %a{:href => "#{user_facebook_omniauth_authorize_path}"}
+                %span.icon-facebook
+                Sign in with facebook
+
     .row
-      .col-md-12
-        .connections-container
-          .connection
+      %hr/
+      .col-md-6
+        %p.copyright-and-version-info
+          Collegetrends © 2017 [Alpha v1.1]
+
+
 - content_for :pagejs do
   /- javascript_include_tag "helpers/posts/firefly.posts.js", "helpers/chat/firefly.chat.js", "home/firefly.home.js"

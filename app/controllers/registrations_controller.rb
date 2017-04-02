@@ -4,16 +4,18 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def set_user_data
-    #email = params["user"]["email"]
-    #user = User.find_by_email(email)
+    email = params["user"]["email"]
+    user = User.find_by_email(email)
 
-    #move this to settings in future
-    #user.profile_picture = '/assets/sprites/person.png'
-    #user.save!
+    candidate_username = email.split('@')[0] + "_#{user.id}"
+    user.username = candidate_username.gsub('.','_')
+
+    user.profile_picture = '/assets/sprites/person.png'
+    user.save!
   end
 
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :gender)
   end
 
   def account_update_params

@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
 
 body {
-  background: #FFF;
+  background: #edeef0;
 	font-family: 'Ubuntu', sans-serif;
 }
 
 .img-hero {
     width: 100%;
+    position: relative;
+    top: 85px;
 }
 
 @media (min-width: 1200px) {
@@ -15,14 +17,9 @@ body {
 	}
 }
 
-.container {
-    margin-top: 10%;
-}
-
 .hero-text {
-  font-size: 45px;
-  font-weight: bold;
-	color: #323754;
+    color: #323754;
+    font-size: 22px;
 }
 
 .side-kick-text {
@@ -32,6 +29,26 @@ body {
 
 a.btn {
   line-height: 2;
+}
+
+.mt60 {
+    margin-top: 60px;
+}
+
+hr {
+    border-top: 1px solid #dcdcdc;
+}
+
+.copyright-and-version-info {
+    font-size:12px;
+}
+
+.new_user {
+    padding: 20px;
+}
+
+.fw14 {
+    font-size: 14px;
 }
 
 .btn-default {
@@ -137,4 +154,77 @@ a.btn {
     position: relative;
     width: 100%;
     padding-top: 60px;
+}
+
+.well-login,
+.well-signup {
+    padding: 35px;
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    border: 0;
+    width: 320px;
+}
+
+#first-name {
+    width: 49.8%;
+}
+
+#last-name {
+    width: 48.5%;
+}
+
+.wf {
+    width: 100%;
+}
+
+.well-signup {
+    padding: 0;
+}
+
+.well-signup .form-horizontal {
+    padding: 0 35px;
+}
+
+.signup-masthead {
+    padding: 20px;
+    font-size: 18px;
+    padding-bottom: 0;
+}
+
+.input-vk {
+    border: 1px solid #d3d9de;
+    outline: 0;
+    font-size: 14px;
+    padding: 6px 12px 8px;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.signup-facebook {
+    text-align: center;
+    border-top: 1px solid #edeef0;
+    padding: 15px;
+}
+
+.signup-facebook a {
+    font-size: 14px;
+}
+
+.btn-login {
+    width: 100%;
+    font-size: 14px;
+}
+
+.nmb {
+    margin-bottom: 0;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 960px;
+    }
 }

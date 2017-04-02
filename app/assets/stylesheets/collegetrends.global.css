@@ -18,8 +18,15 @@ a:active {
     text-decoration: none;
 }
 
+.navbar-default {
+    background-color: #4c77a4;
+    border-color: #4c77a4;
+    border-radius: 0;
+}
+
 .navbar-brand {
 	font-weight: bold;
+    color: #FFF !important;
 }
 
 @media (min-width: 1200px) {
