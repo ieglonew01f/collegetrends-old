@@ -19,6 +19,9 @@ COLLEGETRENDS.PROFILE = (function() {
 
         eventListeners();
         setCharLimit();
+
+        //init chat
+        var chat = new COLLEGETRENDS.CHAT();
     };
 
     var setCharLimit = function() {

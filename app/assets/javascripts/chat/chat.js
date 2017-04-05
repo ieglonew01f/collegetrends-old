@@ -24,6 +24,10 @@ COLLEGETRENDS.CHAT = function() {
             openChatWindow($(this));
         });
 
+        $(window).bind("beforeunload", function() {
+            App.room.disconnected();
+        });
+
         /*
             User types something in the chat box
          */
@@ -162,7 +166,7 @@ COLLEGETRENDS.CHAT = function() {
                 });
             },
             disconnected: function() {
-                return this.perform('connected', {
+                return this.perform('disconnected', {
                     user_id: $('.chat-panel').attr('data-current-user-id')
                 });
             },

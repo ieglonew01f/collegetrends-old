@@ -8,7 +8,7 @@ body {
 .img-hero {
     width: 100%;
     position: relative;
-    top: 85px;
+    top: 50px;
 }
 
 @media (min-width: 1200px) {

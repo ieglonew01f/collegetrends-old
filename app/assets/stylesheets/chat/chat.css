@@ -1,7 +1,7 @@
 .chat-panel {
     width: 250px;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     left: 0;
     z-index: 999;
     background: #FFF;
