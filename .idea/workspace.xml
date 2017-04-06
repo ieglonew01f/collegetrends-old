@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d74f5f90-bb3f-47c2-a411-8723efb85cae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/chat/chat.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/chat/chat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/profile/profile.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/profile/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/chat/chat.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/chat/chat.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/collegetrends.global.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/collegetrends.global.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/home/home.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home/home.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/index/index.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/index/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/common/_session_nav_bar.html.erb" afterPath="$PROJECT_DIR$/app/views/common/_session_nav_bar.html.erb" />
     </list>
     <ignored path="collegetrends.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,91 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/index/index.haml">
+      <file leaf-file-name="_session_nav_bar.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/common/_session_nav_bar.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            <state relative-caret-position="170">
+              <caret line="10" column="96" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="96" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/chat/chat.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="room_channel.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/channels/room_channel.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/index/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/chat/chat.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collegetrends.global.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="collegetrends.global.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/collegetrends.global.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/home/home.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/profile/profile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/home/home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="44" />
+            <state relative-caret-position="454">
+              <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -157,7 +83,6 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/active_admin.js.coffee" />
         <option value="$PROJECT_DIR$/app/views/common/_sidebar.haml" />
         <option value="$PROJECT_DIR$/app/views/common/_nav_bar.haml" />
-        <option value="$PROJECT_DIR$/app/views/common/_session_nav_bar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/index_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170402185644_add_gender_to_users.rb" />
@@ -172,9 +97,10 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/chat/chat.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/index/index.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/chat/chat.css" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/collegetrends.global.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/home/home.css" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/profile/profile.js" />
+        <option value="$PROJECT_DIR$/app/views/common/_session_nav_bar.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/collegetrends.global.css" />
       </list>
     </option>
   </component>
@@ -223,7 +149,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -429,13 +354,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="home.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/home/home.js&#10;profile.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/profile/profile.js&#10;home.css&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/home/home.css&#10;global&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/collegetrends.global.css&#10;chat.css&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/chat/chat.css&#10;index.cs&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/index/index.css&#10;room&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/room_channel.rb&#10;chat.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/chat/chat.js&#10;user&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/models/user.rb&#10;route&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/routes.rb&#10;omniauth_callbacks&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/users/omniauth_callbacks_controller.rb&#10;setup&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/setup_controller.rb&#10;devise&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/initializers/devise.rb&#10;omni&#9;null&#9;null&#10;application_con&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/application_controller.rb&#10;applicationc_&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/initializers/application_controller_renderer.rb&#10;RegistrationsController&#9;null&#9;null&#10;usercon&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/users_controller.rb&#10;index&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/index_controller.rb&#10;user.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/models/user.rb&#10;add&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170401182032_add_online_to_users.rb&#10;20170402185644_add_gender_to_users.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170402185644_add_gender_to_users.rb&#10;indexcon&#9;null&#9;null&#10;user/new&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/users/new.html.erb&#10;navbar&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/common/_session_nav_bar.html.erb&#10;index.css&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/index/index.css&#10;side&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/common/_sidebar.haml&#10;chat&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/templates/_chat_people_template.haml&#10;application_cable/connection.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/application_cable/connection.rb&#10;migrate/add&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170325083307_add_profile_picture_to_users.rb&#10;0170401182032_add_online_to_users.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170401182032_add_online_to_users.rb&#10;homecon&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/home_controller.rb&#10;cha&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/chat/chat.js&#10;routes&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/routes.rb&#10;cab&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/cable.js&#10;actio&#9;null&#9;null&#10;index/index.haml&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/index/index.haml&#10;incomming_message&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/templates/_incomming_message.haml&#10;room_c&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/room_channel.rb&#10;room.co&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/channels/room.coffee&#10;chat.cof&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/channels/chat.coffee&#10;roomc&#9;null&#9;null&#10;app&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/application.js&#10;MessageBroadcastJob&#9;null&#9;null&#10;messa&#9;null&#9;null&#10;chat.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/chat_channel.rb&#10;application.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/application.js&#10;cable&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/cable.js&#10;post.&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/lib/post/post.js&#10;post.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/lib/post/post.js" />
+    <property name="SearchEverywhereHistoryKey" value="global.&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/collegetrends.global.css&#10;sess&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/common/_session_nav_bar.html.erb&#10;home.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/home/home.js&#10;profile.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/profile/profile.js&#10;home.css&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/home/home.css&#10;global&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/collegetrends.global.css&#10;chat.css&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/chat/chat.css&#10;index.cs&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/index/index.css&#10;room&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/room_channel.rb&#10;chat.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/chat/chat.js&#10;user&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/models/user.rb&#10;route&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/routes.rb&#10;omniauth_callbacks&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/users/omniauth_callbacks_controller.rb&#10;setup&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/setup_controller.rb&#10;devise&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/initializers/devise.rb&#10;omni&#9;null&#9;null&#10;application_con&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/application_controller.rb&#10;applicationc_&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/initializers/application_controller_renderer.rb&#10;RegistrationsController&#9;null&#9;null&#10;usercon&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/users_controller.rb&#10;index&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/index_controller.rb&#10;user.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/models/user.rb&#10;add&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170401182032_add_online_to_users.rb&#10;20170402185644_add_gender_to_users.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170402185644_add_gender_to_users.rb&#10;indexcon&#9;null&#9;null&#10;user/new&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/users/new.html.erb&#10;navbar&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/common/_session_nav_bar.html.erb&#10;index.css&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/stylesheets/index/index.css&#10;side&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/common/_sidebar.haml&#10;chat&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/templates/_chat_people_template.haml&#10;application_cable/connection.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/application_cable/connection.rb&#10;migrate/add&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170325083307_add_profile_picture_to_users.rb&#10;0170401182032_add_online_to_users.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/db/migrate/20170401182032_add_online_to_users.rb&#10;homecon&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/controllers/home_controller.rb&#10;cha&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/chat/chat.js&#10;routes&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/config/routes.rb&#10;cab&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/cable.js&#10;actio&#9;null&#9;null&#10;index/index.haml&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/index/index.haml&#10;incomming_message&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/views/templates/_incomming_message.haml&#10;room_c&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/room_channel.rb&#10;room.co&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/channels/room.coffee&#10;chat.cof&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/channels/chat.coffee&#10;roomc&#9;null&#9;null&#10;app&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/application.js&#10;MessageBroadcastJob&#9;null&#9;null&#10;messa&#9;null&#9;null&#10;chat.rb&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/channels/chat_channel.rb&#10;application.js&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/application.js&#10;cable&#9;FILE&#9;file://C:/Users/Mukunda/rails-dev-box/collegetrends/app/assets/javascripts/cable.js" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -989,12 +915,13 @@
       <workItem from="1491046823371" duration="20163000" />
       <workItem from="1491123731164" duration="5857000" />
       <workItem from="1491155352386" duration="7903000" />
-      <workItem from="1491426907679" duration="813000" />
+      <workItem from="1491426907679" duration="969000" />
+      <workItem from="1491512327899" duration="2392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51297000" />
+    <option name="totallyTimeSpent" value="53845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
@@ -1013,7 +940,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13259958" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1024,6 +950,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1214,13 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/common/_session_nav_bar.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/common/_nav_bar.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1267,7 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,7 +1208,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1297,7 +1215,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1305,7 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1318,16 +1234,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index/index.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="578">
           <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/chat/chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -1356,17 +1264,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/collegetrends.global.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/home/home.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
+        <state relative-caret-position="748">
           <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
           <folding />
         </state>
@@ -1384,6 +1284,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/chat/chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/common/_session_nav_bar.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="96" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/collegetrends.global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
           <folding />
         </state>
       </provider>
