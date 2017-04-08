@@ -1,0 +1,15 @@
+%script#search-result-people-template{:type => "text/x-handlebars-template"}
+  %a.list-group-item{:href => "/profile/{{username}}"}
+    %img.img-circle{:alt => "...", :src => "{{profile_picture}}", :width => "35"}/
+    %span {{first_name}} {{last_name}}
+    %span.small {{college}}
+
+%script#search-result-people-no-results-template{:type => "text/x-handlebars-template"}
+  .no-results
+    %span.icon.icon-search
+    No results found
+
+%script#search-result-people-loading-results-template{:type => "text/x-handlebars-template"}
+  .no-results
+    %span.icon.icon-spinner9
+    Fetching search results ...

@@ -18,3 +18,4 @@
 //= require cable.js
 
 //= require lib/utils/utils.js
+//= require search/search.js

@@ -8,7 +8,18 @@
       </div>
       <div class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control input-sm" placeholder="Search" id="search-input">
+          <input type="text" class="form-control input-sm" placeholder="Search for people ..." id="search-input">
+        </div>
+        <div class="search-result-container hidden">
+          <div class="search-results-show-all hidden">
+            <a href="" class="">
+              See all results
+            </a>
+            <span class="icon icon-arrow-right"></span>
+          </div>
+          <div class="list-group search-results-list">
+
+          </div>
         </div>
       </div>
       <ul class="nav navbar-nav navbar-right">
@@ -29,3 +40,5 @@
     </div>
   </nav>
 <% end %>
+
+<%= render "templates/search_results_template" %>

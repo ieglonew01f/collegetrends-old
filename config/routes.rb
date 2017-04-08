@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'search' => 'search#people'
+
   get 'profile/:username' => 'profile#index'
   get 'profile/:username/edit' => 'profile#edit'
 

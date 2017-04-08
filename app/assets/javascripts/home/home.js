@@ -16,6 +16,9 @@ COLLEGETRENDS.HOME = (function() {
 
         //init chat
         var chat = new COLLEGETRENDS.CHAT();
+
+        //init chat bar
+        var search = new COLLEGETRENDS.SEARCH();
     };
 
     return {

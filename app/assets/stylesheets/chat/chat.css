@@ -2,7 +2,7 @@
     width: 250px;
     height: 100vh;
     position: fixed;
-    left: 0;
+    right: 0;
     z-index: 999;
     background: #FFF;
     top: 0;
@@ -93,8 +93,8 @@
 }
 
 .private-chat-box {
-    position: absolute;
-    left: 265px;
+    position: fixed;
+    right: 265px;
     z-index: 9999;
     background: #FFF;
     border: 1px solid;

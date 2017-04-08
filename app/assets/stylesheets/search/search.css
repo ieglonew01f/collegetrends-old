@@ -1,0 +1,75 @@
+.search-result-container {
+    width: 250px;
+    height: 240px;
+    position: absolute;
+    z-index: 9999;
+    border: 1px solid;
+    background: #FFF;
+    border-color: #f1f1f1 #e6e6e6 #d0d1d5;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.search-results-heading {
+    padding: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.search-results-show-all {
+    padding: 10px;
+    font-size: 12px;
+    background: #fff;
+    font-weight: bold;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom: 1px solid #ececec;
+}
+
+.search-result-container .icon-arrow-right {
+    float: right;
+    position: relative;
+    top: 3px;
+}
+
+.search-results-list {
+    height: 238px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.search-results-list.list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.search-results-list.list-group a {
+    border: 0;
+    border-radius: 0;
+}
+
+.search-results-list .list-group-item span {
+    position: relative;
+    bottom: 6px;
+    left: 3px;
+}
+
+.search-results-list .list-group-item span.small {
+    font-size: 8px;
+    display: block;
+    position: relative;
+    left: 42px;
+    top: -15px;
+}
+
+.search-results-list .list-group-item {
+    padding-bottom: 0;
+}
+
+.no-results {
+    padding: 15px;
+}
+
+.no-results .icon {
+    margin-right: 5px;
+}
