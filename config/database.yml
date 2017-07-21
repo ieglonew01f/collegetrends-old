@@ -48,5 +48,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: collegetrends_test
+  encoding: utf8
+  pool: 15
