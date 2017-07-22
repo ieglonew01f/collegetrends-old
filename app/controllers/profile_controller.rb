@@ -4,6 +4,8 @@ class ProfileController < ApplicationController
     @posts = Post.where(user_id: @user.id).order(created_at: :desc)
 
     @isCurrentUserFollowingProfileId = Follower.where('follower_id = ? AND following_id = ?', current_user.id, @user.id).empty?
+
+    @college_people = User.where('college = ? AND id != ?', @user.college, @user.id).limit(20)
   end
 
   def edit

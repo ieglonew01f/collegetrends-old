@@ -1,3 +1,7 @@
+.no-margin {
+	margin: 0px;
+}
+
 .well-edit-profile {
     padding: 20px;
 }
@@ -5,4 +9,9 @@
 .profile-buttons {
     position: relative;
     top: 9px;
+}
+
+.college-people a {
+	margin-right: 5px;
+	margin-bottom: 10px;
 }

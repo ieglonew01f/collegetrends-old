@@ -1,0 +1,10 @@
+- if !@college_people.nil?
+  .well.well-md.well-card.well-bio.well-people-suggestion
+    %span.header
+      %span.icon.icon-users
+      People from your college
+    %p
+      .row.no-margin.college-people
+        - @college_people.each do |p|
+          %a{:href => "/profile/#{p.username}", :title => "#{p.first_name + ' ' + p.last_name}"}
+            %img{:src => "#{p.profile_picture}", :width => "32"}
