@@ -1,0 +1,10 @@
+%script#post-card-meta-template{:type => "text/x-handlebars-template", :hidden => "true"}
+  .media
+    .media-left
+      %a{:href => "{{page_object.url}}"}
+        %img.media-object{:src => "{{page_object.image}}", :width => "100"}/
+    .media-body
+      %h4.media-heading
+        {{page_object.title}}
+      %p
+        {{page_object.description}}

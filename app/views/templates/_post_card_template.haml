@@ -18,6 +18,18 @@
           %small Just now
           %p
             {{{post.content}}}
+          {{#if post.post_meta}}
+          .post-meta-container
+            .media
+              .media-left
+                %a{:href => "{{post_meta.url}}"}
+                  %img.media-object{:src => "{{post_meta.image}}", :width => "150", :height => "100"}/
+              .media-body
+                %h4.media-heading
+                  {{post_meta.title}}
+                %p
+                  {{post_meta.description}}
+          {{/if}}
     .footer
       %ul.list-unstyled.list-inline
         %li

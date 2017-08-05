@@ -38,8 +38,20 @@ COLLEGETRENDS.UTILS = (function() {
         return Handlebars.compile(elem.html());
     };
 
+    //test for link validity
+    var isLink = function(string) {
+        var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+        
+        if (!regex.test(string)) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
     return {
         sendAjax: sendAjax,
-        getTemplate: getTemplate
+        getTemplate: getTemplate,
+        isLink: isLink
     };
 })();

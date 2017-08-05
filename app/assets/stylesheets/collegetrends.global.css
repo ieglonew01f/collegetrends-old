@@ -18,6 +18,34 @@ a:active {
     text-decoration: none;
 }
 
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000;
+    opacity: .6;
+    transition: opacity .3s;
+    z-index: 999;
+}
+
+.well-status-post {
+    position: relative;
+    z-index: 999;
+    min-height: 174px;
+}
+
+.post-meta,
+.post-meta-container {
+    padding: 15px;
+    border: 1px dashed #828282;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+#share-post-btn {
+    margin-top: 10px;
+}
+
 .navbar-default {
     background-color: #4c77a4;
     border-color: #4c77a4;

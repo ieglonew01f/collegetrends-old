@@ -5,7 +5,8 @@ COLLEGETRENDS.POST = function(options) {
         sharePostBtn = options.sharePostBtn,
         postContainer = options.postContainer,
         root = options.root,
-        utils = COLLEGETRENDS.UTILS;
+        utils = COLLEGETRENDS.UTILS,
+        parsedLink;
 
     var init = function() {
         sharePostBtn.on('click', function() {
@@ -19,19 +20,39 @@ COLLEGETRENDS.POST = function(options) {
         root.on('click', '.delete-post', function() {
             deletePost($(this));
         });
+
+        statusTextInput.on('paste', function () {
+            var self = $(this);
+            setTimeout(function () {
+                var link = $(self).val();
+                //test if pasted value is a link
+                if(utils.isLink(link)) {
+                    //make ajax request to get link data
+                    link_parser(link);
+                }
+            }, 100);
+        });
+
+        statusTextInput.on('focus', function() {
+            $('.overlay').removeClass('hidden');
+        });
+
+        statusTextInput.on('blur', function() {
+            $('.overlay').addClass('hidden');
+        });
     };
 
     /*
         This method will make an ajax call to share a post
 
         Post type = 1 for normal text based posts
-        Post type = 2 image based posts
+        Post type = 2 posts with meta (links/videos/images)
     */
     var sharePost = function(self) {
         var postType = self.attr('data-post-type'),
             postText = statusTextInput.val();
 
-        if ($.trim(postText) !== '' && postType === '1') {
+        if ($.trim(postText) !== '') {
             var handlers = {
                 beforeSend: function() {
                     self.hide();
@@ -47,6 +68,7 @@ COLLEGETRENDS.POST = function(options) {
                     self.show();
                     statusTextInput.val('');
                     $('#status-widget-loader').addClass('hidden');
+                    $('.post-meta').hide();
                 }
             };
 
@@ -59,6 +81,7 @@ COLLEGETRENDS.POST = function(options) {
                 requestData: {
                     post: {
                         post_type: postType,
+                        post_meta: JSON.stringify(parsedLink), 
                         content: postTextPreserved
                     }
                 }
@@ -69,16 +92,19 @@ COLLEGETRENDS.POST = function(options) {
     };
 
     var renderPost = function(response) {
-        var postCardTemplate = utils.getTemplate($('#post-card-template'));
+        var postCardTemplate = utils.getTemplate($('#post-card-template')),
+            post_meta;
+
+
 
         var templateData = postCardTemplate({
               post: response.post,
+              post_meta: JSON.parse(response.post.post_meta),
               user: response.post_user
             }
         );
 
         postContainer.prepend(templateData);
-
     };
 
     /*
@@ -188,6 +214,46 @@ COLLEGETRENDS.POST = function(options) {
             },
             complete: function() {
                 thisPostContainer.remove();
+            }
+        };
+
+        utils.sendAjax(options, handlers);
+    };
+
+    var link_parser = function(link) {
+        var options = {
+            requestType: 'PUT',
+            requestURL: '/posts/parse_link/',
+            requestData: {
+                link: link
+            }
+        };
+
+        var handlers = {
+            beforeSend: function() {
+                sharePostBtn.hide();
+                $('#status-widget-loader').removeClass('hidden');
+            },
+            success: function(response) {
+                var postCardMetaTemplate = utils.getTemplate($('#post-card-meta-template'));
+
+                response.page_object.image = response.page_object.images[0].src;
+
+                $('.post-meta')
+                    .html(postCardMetaTemplate({
+                        page_object: response.page_object
+                    }))
+                    .show();
+
+                parsedLink = response.page_object;
+                sharePostBtn.attr('data-post-type', '2');
+            },
+            error: function() {
+
+            },
+            complete: function() {
+                sharePostBtn.show();
+                $('#status-widget-loader').addClass('hidden');
             }
         };
 

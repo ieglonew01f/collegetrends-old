@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
+  include PostsHelper
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @user = User.find_by_id(current_user.id)
-
+  	get_home_posts
     if @user.sign_in_count == 1
       redirect_to '/setup/'
     end

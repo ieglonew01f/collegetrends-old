@@ -25,6 +25,17 @@
             ago
           %p
             = post.content.html_safe
+          - if post.post_meta
+            .post-meta-container
+              .media
+                .media-left
+                  %a{:href => "#{JSON.parse(post.post_meta)["url"]}"}
+                    %img.media-object{:src => "#{JSON.parse(post.post_meta)["image"]}", :width => "150", :height => "100"}/
+                .media-body
+                  %h4.media-heading
+                    = JSON.parse(post.post_meta)["title"]
+                  %p
+                    = JSON.parse(post.post_meta)["description"]
     .footer
       %ul.list-unstyled.list-inline
         %li

@@ -12,6 +12,7 @@
           = @user.college
     .status-text-holder
       %textarea#status-text-holder{:placeholder => "Share something today..", :rows => "2"}
+      .post-meta{:hidden => "true"}
       %button.btn.btn-sm.btn-default.pull-right#share-post-btn{"data-post-type" => "1"} Share
       .loader.loader-inner.ball-pulse.pull-right#status-widget-loader.hidden
         %div

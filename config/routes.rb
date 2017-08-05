@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :post_likes
   resources :messages
   resources :followers
-  resources :posts
+  resources :posts do
+    collection do 
+      put 'parse_link'
+    end
+  end
   resources :users
 
   resources :home do
