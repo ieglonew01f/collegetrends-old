@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+	include PublicActivity::StoreController
+
   def after_sign_in_path_for(resource)
     '/home/'
   end

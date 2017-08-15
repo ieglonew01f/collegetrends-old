@@ -2038,3 +2038,20 @@ a:active {
 }
 
 /* EOF CSS LOADER */
+
+.notification-dropdown .icon-bell {
+  color: #FFF;
+}
+
+.notification-dropdown .dropdown-menu {
+  min-width: 300px;
+}
+
+.notification-dropdown .dropdown-menu > li > a {
+  word-wrap: break-word;
+  white-space: initial;
+}
+
+.notification-dropdown .media-headings {
+  font-size: 85%;
+}

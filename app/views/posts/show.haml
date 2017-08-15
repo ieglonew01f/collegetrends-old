@@ -1,0 +1,65 @@
+- post = @post
+- content_for :title do
+  = post.content.html_safe
+- content_for :pagecss do
+  - stylesheet_link_tag "home/home.css", "chat/chat.css"
+= render "common/session_nav_bar"
+= render "common/sidebar"
+- content_for :body do
+  .container
+    .row
+      .col-md-8
+        .posts-container
+          .well.well-sm.well-card.well-feed{"data-post-id" => "#{post.id}", "data-post-likes-count" => "#{post.post_likes.count}"}
+            .body
+              .media
+                .media-left
+                  %a{:href => "/profile/#{post.user.username}"}
+                    %img.media-object.img-circle{:alt => "...", :src => "#{post.user.profile_picture}", :width => "35"}/
+                  - if PostLike.where('post_id = ? AND liked_by = ?', post.id, current_user.id).first.nil?
+                    %span.icon.icon-heart.like-btn.text-muted{"data-liked" => "0"}
+                  - elsif
+                    %span.icon.icon-heart.like-btn.text-danger{"data-liked" => "1"}
+                .media-body
+                  - if post.user.id == current_user.id
+                    .pull-right
+                      %span.icon.icon-bin.delete-post{:title => "Delete this post"}
+                      .loader.loader-inner.ball-pulse.pull-right.post-operation-loader.hidden
+                        %div
+                        %div
+                        %div
+                  %h5.media-heading
+                    = post.user.first_name
+                    = post.user.last_name
+                  %small
+                    = time_ago_in_words(post.created_at)
+                    ago
+                  %p
+                    = post.content.html_safe
+                  - if post.post_meta
+                    .post-meta-container
+                      .media
+                        .media-left
+                          %a{:href => "#{JSON.parse(post.post_meta)["url"]}"}
+                            %img.media-object{:src => "#{JSON.parse(post.post_meta)["image"]}", :width => "150", :height => "100"}/
+                        .media-body
+                          %h4.media-heading
+                            = JSON.parse(post.post_meta)["title"]
+                          %p
+                            = JSON.parse(post.post_meta)["description"]
+            .footer
+              %ul.list-unstyled.list-inline
+                %li
+                  %span.likes-count
+                    = pluralize(post.post_likes.count, 'like')
+                %li
+                  %span.icon.icon-share.share-btn.hidden
+      .col-md-4
+        = render "widgets/mini_profile_card"
+        = render "common/about_us"
+
+  = render "templates/post_card_template"
+  = render "templates/post_card_meta_template"
+
+- content_for :pagejs do
+  - javascript_include_tag "lib/post/post.js", "home/home.js", "chat/chat.js"

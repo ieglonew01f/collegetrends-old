@@ -19,3 +19,4 @@
 
 //= require lib/utils/utils.js
 //= require search/search.js
+//= require notifications/notifications.js

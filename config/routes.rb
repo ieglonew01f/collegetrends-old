@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   root 'index#index'
 
+  resources :notifications
   resources :post_likes
   resources :messages
   resources :followers
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       put 'parse_link'
     end
   end
+
   resources :users
 
   resources :home do

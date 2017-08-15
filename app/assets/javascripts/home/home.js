@@ -4,8 +4,8 @@ COLLEGETRENDS.HOME = (function() {
     'use strict';
 
     var init = function() {
-        //init posts
-        var post = new COLLEGETRENDS.POST(
+        //init stuff
+        COLLEGETRENDS.POST(
             {
                 statusTextInput: $('#status-text-holder'),
                 sharePostBtn: $('#share-post-btn'),
@@ -14,11 +14,9 @@ COLLEGETRENDS.HOME = (function() {
             }
         );
 
-        //init chat
-        var chat = new COLLEGETRENDS.CHAT();
-
-        //init chat bar
-        var search = new COLLEGETRENDS.SEARCH();
+        COLLEGETRENDS.CHAT();
+        COLLEGETRENDS.SEARCH();
+        COLLEGETRENDS.NOTIFICATIONS();
     };
 
     return {

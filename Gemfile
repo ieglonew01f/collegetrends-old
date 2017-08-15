@@ -36,6 +36,8 @@ gem 'omniauth-facebook'
 #Use url expander
 gem 'link_thumbnailer'
 
+#Use Public Activity for activity feeds
+gem 'public_activity'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

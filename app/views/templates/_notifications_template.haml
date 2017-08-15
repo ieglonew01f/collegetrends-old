@@ -1,0 +1,13 @@
+%script#notifications-template{:type => "text/x-handlebars-template"}
+  {{#each notifications}}
+  %li
+    %a.media{:href => "/posts/{{object.id}}"} 
+      %small.pull-right.text-muted
+        %span.icon.icon-clock
+        {{time_stamp}} ago
+      .media-left
+        %img.media-object{:alt => "...", :src => "{{owner.profile_picture}}", :width => "32"}/
+      .media-body
+        .media-headings {{owner.first_name}} {{owner.last_name}}
+        %small {{message}}
+  {{/each}}
