@@ -245,7 +245,7 @@
 }
 
 .text-danger {
-  color: #f75252;
+  color: #f75252 !important;
 }
 
 .delete-post {

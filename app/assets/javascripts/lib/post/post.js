@@ -142,7 +142,7 @@ COLLEGETRENDS.POST = function(options) {
           else like the post
         */
         if (liked === "1") {
-            self.removeClass('text-danger text-muted').addClass('text-muted');
+            self.find('.icon-heart').removeClass('text-danger');
             self.attr('data-liked', '0');
 
             if (currentLikes > 2) {
@@ -163,7 +163,7 @@ COLLEGETRENDS.POST = function(options) {
             };
         }
         else {
-            self.removeClass('text-danger text-muted').addClass('text-danger');
+            self.find('.icon-heart').removeClass('text-danger text-muted').addClass('text-danger');
             self.attr('data-liked', '1');
 
             if (currentLikes >= 1) {
