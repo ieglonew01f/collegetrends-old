@@ -21,6 +21,27 @@ COLLEGETRENDS.POST = function(options) {
             deletePost($(this));
         });
 
+        root.on('click', '.comment-btn', function() {
+            var self = $(this),
+                clicked = self.attr('data-clicked');
+
+            if (!clicked) {
+                listComments($(this));
+            }
+
+            self.attr('data-clicked', true);
+
+            self.parents('.well-feed').find('.comments-container').toggle();
+        });
+
+        root.on('click', '.add-comment-btn', function() {
+            addComment($(this));
+        });
+
+        root.on('click', '.load-more-comments', function() {
+            loadMoreComments($(this));
+        });
+
         statusTextInput.on('paste', function () {
             var self = $(this);
             setTimeout(function () {
@@ -94,8 +115,6 @@ COLLEGETRENDS.POST = function(options) {
     var renderPost = function(response) {
         var postCardTemplate = utils.getTemplate($('#post-card-template')),
             post_meta;
-
-
 
         var templateData = postCardTemplate({
               post: response.post,
@@ -254,6 +273,127 @@ COLLEGETRENDS.POST = function(options) {
             complete: function() {
                 sharePostBtn.show();
                 $('#status-widget-loader').addClass('hidden');
+            }
+        };
+
+        utils.sendAjax(options, handlers);
+    };
+
+    var addComment = function(self) {
+        var commentText = self.parents('.well-feed').find('.comment-text'),
+            comment = $.trim(commentText.val()),
+            post_id = self.parents('.well-feed').attr('data-post-id'),
+            comments_container = self.parents('.well-feed').find('.comments-list');
+
+        if (comment === '' || post_id === '') return;
+
+        var options = {
+            requestType: 'POST',
+            requestURL: '/posts/' + post_id + '/comments',
+            requestData: {
+                "comment[post_id]": post_id,
+                "comment[comment_text]": comment
+            }
+        };
+
+        var handlers = {
+            beforeSend: function() {
+                commentText.val('');
+            },
+            success: function(response) {
+                if (!response || 
+                    !response.comment ||
+                    response.comment.length === 0) return;
+
+                var commentsTemplate = utils.getTemplate($('#comments-template'));
+
+                comments_container.prepend(commentsTemplate({
+                    comments: response.comment
+                }));
+            },
+            error: function() {
+
+            },
+            complete: function() {
+
+            }
+        };
+
+        utils.sendAjax(options, handlers);
+    };
+
+    var listComments = function(self) {
+        var post_id = self.parents('.well-feed').attr('data-post-id'),
+            comments_container = self.parents('.well-feed').find('.comments-list');
+
+        if (post_id === '') return;
+
+        var options = {
+            requestType: 'GET',
+            requestURL: '/posts/' + post_id + '/comments'
+        };
+
+        var handlers = {
+            beforeSend: function() {
+
+            },
+            success: function(response) {
+                if (!response || 
+                    !response.comments ||
+                    response.comments.length === 0) return;
+
+                var commentsTemplate = utils.getTemplate($('#comments-template'));
+
+                comments_container.html(commentsTemplate({
+                    comments: response.comments
+                }));
+            },
+            error: function() {
+
+            },
+            complete: function() {
+
+            }
+        };
+
+        utils.sendAjax(options, handlers);
+    };
+
+    var loadMoreComments = function(self) {
+        var post_id = self.parents('.well-feed').attr('data-post-id'),
+            comments_container = self.parents('.well-feed').find('.comments-list'),
+            last_id = comments_container.find('.media.comment:last').attr('data-id');
+
+        if (post_id === '' || last_id === '') return;
+
+        var options = {
+            requestType: 'GET',
+            requestURL: '/posts/' + post_id + '/comments/load_more',
+            requestData: {
+                last_id: last_id
+            }
+        };
+
+        var handlers = {
+            beforeSend: function() {
+
+            },
+            success: function(response) {
+                if (!response || 
+                    !response.comments ||
+                    response.comments.length === 0) return;
+
+                var commentsTemplate = utils.getTemplate($('#comments-template'));
+
+                comments_container.append(commentsTemplate({
+                    comments: response.comments
+                }));
+            },
+            error: function() {
+
+            },
+            complete: function() {
+
             }
         };
 

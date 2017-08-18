@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   resources :messages
   resources :followers
   resources :posts do
+    resources :comments do 
+      collection do 
+        get 'load_more'
+      end
+    end
+
     collection do 
       put 'parse_link'
     end

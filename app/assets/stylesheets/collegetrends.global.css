@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
 body {
 	color: #6d6d6d;
 	background: #efefef;
-	font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -16,6 +16,10 @@ a:hover,
 a:active {
     color: #4c77a4;
     text-decoration: none;
+}
+
+.text-danger {
+  color: #f16d6d;
 }
 
 .overlay {
@@ -37,9 +41,8 @@ a:active {
 .post-meta,
 .post-meta-container {
     padding: 15px;
-    border: 1px dashed #828282;
+    border: 1px solid #eaeaea;
     margin-top: 15px;
-    border-radius: 5px;
 }
 
 #share-post-btn {

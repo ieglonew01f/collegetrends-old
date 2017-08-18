@@ -1,0 +1,14 @@
+%script#comments-template{:type => "text/x-handlebars-template"}
+  {{#each comments}}
+  .media.comment{"data-id" => "{{comment.id}}"}
+    .media-left
+      %a{:href => "/profile/{{user.username}}"}
+        %img.media-object.img-circle{:alt => "...", :src => "{{user.profile_picture}}", :width => "28"}/
+    .media-body
+      %h6.media-heading
+        {{user.first_name}}
+        {{user.last_name}}
+      %p.nmb {{comment.comment_text}}
+      %p.nmb 
+        %small {{time_stamp}} ago
+  {{/each}}

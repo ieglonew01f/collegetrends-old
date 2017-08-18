@@ -1,14 +1,12 @@
 - @posts.each do |post|
+  - comments_count = post.comments.count
+
   .well.well-sm.well-card.well-feed{"data-post-id" => "#{post.id}", "data-post-likes-count" => "#{post.post_likes.count}"}
     .body
       .media
         .media-left
           %a{:href => "/profile/#{post.user.username}"}
             %img.media-object.img-circle{:alt => "...", :src => "#{post.user.profile_picture}", :width => "35"}/
-          - if PostLike.where('post_id = ? AND liked_by = ?', post.id, current_user.id).first.nil?
-            %span.icon.icon-heart.like-btn.text-muted{"data-liked" => "0"}
-          - elsif
-            %span.icon.icon-heart.like-btn.text-danger{"data-liked" => "1"}
         .media-body
           - if post.user.id == current_user.id
             .pull-right
@@ -36,10 +34,37 @@
                     = JSON.parse(post.post_meta)["title"]
                   %p
                     = JSON.parse(post.post_meta)["description"]
-    .footer
-      %ul.list-unstyled.list-inline
-        %li
-          %span.likes-count
-            = pluralize(post.post_likes.count, 'like')
-        %li
-          %span.icon.icon-share.share-btn.hidden
+      .footer
+        - if PostLike.where('post_id = ? AND liked_by = ?', post.id, current_user.id).first.nil?
+          %a.post-btn.like-btn{:href => "#", "data-liked" => "0"}
+            %span.icon.icon-heart
+            %span Like
+        - elsif
+          %a.post-btn.like-btn{:href => "#", "data-liked" => "1"}
+            %span.icon.icon-heart
+            %span Like
+
+        %a.post-btn.comment-btn{:href => "javascript:void(0)"}
+          %span.icon.glyphicon.glyphicon-comment
+          %span Comments
+    .comments-container{:hidden => "true"}
+      .comment-body
+        .comments-list
+        - if comments_count && comments_count > 5
+          .load-more-comments
+            Show more comments
+        .media
+          .media-left
+            %a{:href => "/profile/#{@user.username}"}
+              %img.media-object.img-circle{:alt => "...", :src => "#{@user.profile_picture}", :width => "22"}/
+          .media-body
+            %p
+              %textarea.comment-text{:placeholder => "Leave a comment ...", :rows => "3"}
+      .comment-footer
+        .row
+          .col-md-12
+            %button.btn.btn-primary.btn-sm.pull-right.add-comment-btn Post
+
+
+
+
