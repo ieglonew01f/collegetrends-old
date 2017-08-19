@@ -381,7 +381,10 @@ COLLEGETRENDS.POST = function(options) {
             success: function(response) {
                 if (!response || 
                     !response.comments ||
-                    response.comments.length === 0) return;
+                    response.comments.length === 0) {
+                    self.hide();
+                    return;
+                }
 
                 var commentsTemplate = utils.getTemplate($('#comments-template'));
 

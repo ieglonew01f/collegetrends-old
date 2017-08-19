@@ -16,6 +16,9 @@ module NotificationsHelper
       when "post_like.create"
         post = PostLike.find(a.trackable_id).post
         notifications.push({"message" => "liked a post", "time_stamp" => time_ago_in_words(a.created_at), "owner" => owner, "object" => post})
+      when "comment.create"
+        post = Comment.find(a.trackable_id).post
+        notifications.push({"message" => "commented on a post", "time_stamp" => time_ago_in_words(a.created_at), "owner" => owner, "object" => post}) 
       end
     end
 

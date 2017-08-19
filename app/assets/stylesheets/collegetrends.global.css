@@ -2058,3 +2058,30 @@ a:active {
 .notification-dropdown .media-headings {
   font-size: 85%;
 }
+
+.well-activity {
+  padding: 0;
+}
+
+.well-activity .head {
+    background: #fafbfc;
+    padding: 10px;
+}
+
+.well-activity .body {
+    padding: 10px;
+}
+
+.well-profile-sm {
+  padding: 10px;
+  padding-top: 15px;
+}
+
+.well-activity p span.name {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.well-activity p {
+  line-height: 1.2
+}
