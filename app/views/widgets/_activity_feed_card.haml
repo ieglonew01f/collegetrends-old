@@ -1,0 +1,20 @@
+.well.well-md.well-card.well-activity
+  .head 
+    Recent activities
+  .body
+    - if @activities.length > 0
+      - @activities.each do |activity|
+        .media
+          .media-left
+            %a{:href => "/profile/#{activity["owner"].username}"}
+              %img.media-object{:src => "#{activity["owner"].profile_picture}", :width => "32"}/
+          .media-body
+            %p.nmb
+              %span.name
+                = activity["owner"].first_name + " " + activity["owner"].last_name
+              %small
+                = activity["message"].html_safe
+                = activity["time_stamp"] + " ago"
+    - elsif
+      %small
+        No recent activities 
