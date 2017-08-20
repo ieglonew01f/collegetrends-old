@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require rails_emoji_picker
  *= require bootstrap/bootstrap.css
  *= require icons.css
  *= require collegetrends.global.css

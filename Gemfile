@@ -33,11 +33,18 @@ gem 'haml'
 gem 'devise'
 gem 'omniauth-facebook'
 
-#Use url expander
+# Use url expander
 gem 'link_thumbnailer'
 
-#Use Public Activity for activity feeds
+# Use Public Activity for activity feeds
 gem 'public_activity'
+
+# Emoji
+gem 'rails_emoji_picker'
+
+# Use image processing gems
+gem 'carrierwave', '~> 1.1.0'
+gem 'mini_magick', '~> 4.8.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
