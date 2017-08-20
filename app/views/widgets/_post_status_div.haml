@@ -12,9 +12,19 @@
           = @user.college
     .status-text-holder
       %textarea#status-text-holder{:placeholder => "Share something today..", :rows => "2", "data-emojiable" => "false"}
+
+      %img#image-preview{:src => "", :width => "100%", :hidden => "true"}
       .post-meta{:hidden => "true"}
+      .progress#upload-progress{:hidden => "true"}
+        .progress-bar.progress-bar-striped.active{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "45", :role => "progressbar", :style => "width: 5%"}
+
+      %a#upload-image{:href => "javascript:void(0)", :title => "Share image"}
+        %span.icon.icon-camera
       %button.btn.btn-sm.btn-default.pull-right#share-post-btn{"data-post-type" => "1"} Share
       .loader.loader-inner.ball-pulse.pull-right#status-widget-loader.hidden
         %div
         %div
         %div
+  .status-post-image-upload.hidden
+    = form_for PostDatum.new, html: { multipart: true, id: 'form-photo-upload' } do |p|
+      = p.file_field :data

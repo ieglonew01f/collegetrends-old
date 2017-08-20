@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap/bootstrap.js
 //= require handlebars/handlebars.js
+//= require jquery_form/jquery.form.js
 
 //= require cable.js
 

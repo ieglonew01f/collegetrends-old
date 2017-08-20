@@ -12,6 +12,16 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if post.save
+        # update post data table with post_id
+        if params[:post][:post_data_id]
+          pd = PostDatum.find(params[:post][:post_data_id])
+
+          if pd
+            pd.post_id = post.id
+            pd.save
+          end
+        end
+
         format.json { render :json => { :status => 200, :message => 'Post has been created successfully', :post => post, :post_user => post_user } }
       else
         format.json { render :json => { :status => :unprocessable_entity, :errors => post.errors } }

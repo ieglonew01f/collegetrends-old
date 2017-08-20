@@ -6,7 +6,8 @@ COLLEGETRENDS.POST = function(options) {
         postContainer = options.postContainer,
         root = options.root,
         utils = COLLEGETRENDS.UTILS,
-        parsedLink;
+        parsedLink,
+        postDataId;
 
     var init = function() {
         sharePostBtn.on('click', function() {
@@ -61,13 +62,48 @@ COLLEGETRENDS.POST = function(options) {
         statusTextInput.on('blur', function() {
             $('.overlay').addClass('hidden');
         });
+
+        $('#upload-image').on('click', function() {
+            $('#post_datum_data').trigger('click');
+        });
+
+        $('#post_datum_data').on('change', function() {
+            $('#form-photo-upload').submit();
+        });
+
+        $('#form-photo-upload').ajaxForm({
+            beforeSend: function() { //before sending form
+                $('#upload-progress').show()
+            },
+            uploadProgress: function(event, position, total, percentComplete) { //on progress
+                $('#upload-progress .progress-bar').attr('style', 'width:' + percentComplete + '%');
+            },
+            complete: function(response) { // on complete
+                var data = response.responseJSON
+
+                if (data && data.post_datum && data.post_datum.id) {
+                    postDataId = data.post_datum.id;
+
+                    $('#share-post-btn').attr('data-post-type', '3');
+
+                    var image_url = data.post_datum.data.url;
+
+                    if (image_url) {
+                        $('#image-preview').attr('src', image_url).show();
+                    }
+                }
+
+                $('#upload-progress').hide();
+            }
+        });
     };
 
     /*
         This method will make an ajax call to share a post
 
         Post type = 1 for normal text based posts
-        Post type = 2 posts with meta (links/videos/images)
+        Post type = 2 posts with links (links/videos/images)
+        Post type = 3 Image upload 
     */
     var sharePost = function(self) {
         var postType = self.attr('data-post-type'),
@@ -90,6 +126,8 @@ COLLEGETRENDS.POST = function(options) {
                     statusTextInput.val('');
                     $('#status-widget-loader').addClass('hidden');
                     $('.post-meta').hide();
+                    self.attr('data-post-type', '1');
+                    $('#image-preview').hide();
                 }
             };
 
@@ -103,7 +141,8 @@ COLLEGETRENDS.POST = function(options) {
                     post: {
                         post_type: postType,
                         post_meta: JSON.stringify(parsedLink), 
-                        content: postTextPreserved
+                        content: postTextPreserved,
+                        post_data_id: postDataId
                     }
                 }
             };

@@ -2085,3 +2085,19 @@ a:active {
 .well-activity p {
   line-height: 1.2
 }
+
+#upload-image {
+    position: relative;
+    top: 14px;
+    font-size: 1.2em;
+    left: 1px;
+}
+
+.progress {
+  height: 10px;
+}
+
+.well-status-post .progress {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -241,7 +241,11 @@
 }
 
 .well-feed .media {
-  min-height: 78px;
+  min-height: 50px;
+}
+
+.mt10 {
+    margin-top: 10px;
 }
 
 .text-danger {

@@ -1,6 +1,10 @@
 - @posts.each do |post|
   - comments_count = post.comments.count
 
+  / Image post
+  - if post.post_type === 3
+    - post_image = post.post_data.first.data
+
   .well.well-sm.well-card.well-feed{"data-post-id" => "#{post.id}", "data-post-likes-count" => "#{post.post_likes.count}"}
     .body
       .media
@@ -21,19 +25,21 @@
           %small
             = time_ago_in_words(post.created_at)
             ago
-          %p
-            = post.content.html_safe
-          - if post.post_meta
-            .post-meta-container
-              .media
-                .media-left
-                  %a{:href => "#{JSON.parse(post.post_meta)["url"]}"}
-                    %img.media-object{:src => "#{JSON.parse(post.post_meta)["image"]}", :width => "150", :height => "100"}/
-                .media-body
-                  %h4.media-heading
-                    = JSON.parse(post.post_meta)["title"]
-                  %p
-                    = JSON.parse(post.post_meta)["description"]
+        %p.mt10
+          = post.content.html_safe
+        - if post.post_meta
+          .post-meta-container
+            .media
+              .media-left
+                %a{:href => "#{JSON.parse(post.post_meta)["url"]}"}
+                  %img.media-object{:src => "#{JSON.parse(post.post_meta)["image"]}", :width => "150", :height => "100"}/
+              .media-body
+                %h4.media-heading
+                  = JSON.parse(post.post_meta)["title"]
+                %p
+                  = JSON.parse(post.post_meta)["description"]
+        - if post_image
+          %img{:src => "#{post_image}", :width => "100%"}
       .footer
         - if PostLike.where('post_id = ? AND liked_by = ?', post.id, current_user.id).first.nil?
           %a.post-btn.like-btn{:href => "javascript:void(0)", "data-liked" => "0"}
