@@ -88,6 +88,10 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     emoji (1.0.7)
       json
     erubis (2.7.0)
@@ -295,6 +299,7 @@ DEPENDENCIES
   carrierwave (~> 1.1.0)
   coffee-rails (~> 4.2)
   devise
+  dotenv-rails
   haml
   jbuilder (~> 2.5)
   jquery-rails
