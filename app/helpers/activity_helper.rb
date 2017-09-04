@@ -10,14 +10,14 @@ module ActivityHelper
       case a.key
       when "post.create"
         if a.trackable_id
-          post = Post.find(a.trackable_id)
+          post = Post.where('id = ?', a.trackable_id)
           if post
             activities.push({"message" => "shared a new <a href='/posts/#{post.id}'>post</a>", "time_stamp" => time_ago_in_words(a.created_at), "owner" => owner, "object" => post})
           end
         end
       when "post_like.create"
         if a.trackable_id
-          post = PostLike.find(a.trackable_id).post
+          post = PostLike.where('id = ?', a.trackable_id).first.try(:post)
           recipient = User.find(post.user_id)
 
           if post
@@ -30,7 +30,7 @@ module ActivityHelper
         end
       when "comment.create"
         if a.trackable_id
-          post = Comment.find(a.trackable_id).post
+          post = Comment.where('id = ?', a.trackable_id).first.try(:post)
           recipient = User.find(post.user_id)
 
           if post
