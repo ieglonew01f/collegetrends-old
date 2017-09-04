@@ -10,7 +10,7 @@ module ActivityHelper
       case a.key
       when "post.create"
         if a.trackable_id
-          post = Post.where('id = ?', a.trackable_id)
+          post = Post.where('id = ?', a.trackable_id).first
           if post
             activities.push({"message" => "shared a new <a href='/posts/#{post.id}'>post</a>", "time_stamp" => time_ago_in_words(a.created_at), "owner" => owner, "object" => post})
           end
