@@ -84,7 +84,7 @@
           / Messager message list end
 
           / Messager reply box
-          .message-reply-box{"ng-if" => "contactSelected"}
+          .message-reply-box.hide
             %textarea.form-control{"ng-keyup" => "send_message($event)", "ng-model" => "textMessage", :placeholder => "Type a reply ...", :rows => "5"}
           / Messager reply box end
 

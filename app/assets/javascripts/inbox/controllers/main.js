@@ -98,6 +98,7 @@ angular.module('inboxApp').controller('InboxCtrl', function ($scope, $http) {
     //when the user switches between different messages
     //from different users
     $scope.switch_user = function($event) {
+        $('.message-reply-box').removeClass('hide');
         $scope.contactSelected = true;
         $('.media.message').removeClass('selected');
         $($event.currentTarget).addClass('selected');
