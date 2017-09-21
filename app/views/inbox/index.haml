@@ -1,0 +1,92 @@
+- content_for :title do
+  Inbox
+- content_for :pagecss do
+  - stylesheet_link_tag "inbox/inbox.css"
+= render "common/session_nav_bar"
+- content_for :body do
+  .container{"ng-app" => "inboxApp", "ng-controller" => "InboxCtrl", "ng-init" => "init()"}
+    .row
+      .col-md-3
+        / Sidebar header
+        .sidebar
+          .sidebar-head
+            .actions
+              %ul.list-unstyled.list-inline.nmb
+                %li.new-message-btn
+                  %button.btn.btn-default.btn-sm.btn-grey{:type => "button", :disabled => "disabled"}
+                    %span.glyphicon.glyphicon-pencil{"aria-hidden" => "true"}
+                %li
+                  %span.inbox-label Contacts
+                %li.pull-right
+                  %button.btn.btn-default.btn-sm.btn-grey{:type => "button", :disabled => "disabled"}
+                    %span.glyphicon.glyphicon-refresh{"aria-hidden" => "true"}
+          / Sidebar header end
+
+          / Sidebar message list
+          .sidebar-messages
+            %ul.list-unstyled
+              %li{"ng-repeat" => "following in followings"}
+                .media.message{"ng-click" => "switch_user($event)", "data-for-id" => "{{following.id}}"}
+                  .media-left
+                    %a{:href => "javascript:void(0)"}
+                      %img.media-object{:alt => "64x64", "data-holder-rendered" => "true", :height => "54px", :src => "{{following.profile_picture}}", :width => "54px"}
+                  .media-body
+                    %h5.media-heading {{following.first_name}} {{following.last_name}}
+                    %small {{following.college}}
+                    .message-preview
+                      {{user_message.message}}
+          / Sidebar message list end
+
+      .col-md-9
+        .message-container
+          /Welcome message
+          .welcome{"ng-if" => "contactSelected != true"}
+            %p
+              %i.icon.glyphicon.glyphicon-inbox
+            %h2
+              Welcome to Inbox Beta
+            %p
+              Send and recieve messages to anyone from here
+            %small
+              Since this is a beta all actions are disabled, we have only one developer working day and night to bring features to you. Please be patient with us :)
+
+          / Message container controls
+          .message-container-controls{"ng-if" => "contactSelected"}
+            .btn-group{"aria-label" => "...", :role => "group"}
+              %button.btn.btn-default.btn-grey.btn-sm{:type => "button", :disabled => "disabled"}
+                %span.glyphicon.glyphicon-arrow-left{"aria-hidden" => "true"}
+              %button.btn.btn-default.btn-grey.btn-sm{:type => "button", :disabled => "disabled"}
+                %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+              %button.btn.btn-default.btn-grey.btn-sm{:type => "button", :disabled => "disabled"}
+                %span.glyphicon.glyphicon-home{"aria-hidden" => "true"}
+          / Message container controls end
+
+          / Messager profile
+          .message-profile.pb0.hide
+            .media
+              .media-left
+                %a{:href => "#"}
+                  %img.media-object{:alt => "64x64", "data-holder-rendered" => "true", :height => "42px", :src => "", :width => "42px"}/
+              .media-body
+                %h5.media-heading.mr0 First Name Last Name
+                %small Last seen 12 years ago
+            %hr/
+          / Messager profile end
+
+          / Messager message list
+          .messages-list{"scroll-bottom" => "messages", "ng-if" => "contactSelected"}
+            %ul.list-unstyled
+              %li{"ng-repeat" => "message in messages"}
+                .message-text.outbound{"ng-if" => "message.outbound == true"}
+                  {{message.message.message}}
+                .message-text{"ng-if" => "message.outbound == false"}
+                  {{message.message.message}}
+          / Messager message list end
+
+          / Messager reply box
+          .message-reply-box{"ng-if" => "contactSelected"}
+            %textarea.form-control{"ng-keyup" => "send_message($event)", "ng-model" => "textMessage", :placeholder => "Type a reply ...", :rows => "5"}
+          / Messager reply box end
+
+- content_for :pagejs do
+  - javascript_include_tag "inbox/inbox.js"

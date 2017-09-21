@@ -1,0 +1,157 @@
+body {
+  background: #FFF;
+  color: #7d7d7d;
+}
+
+.nmb {
+  margin-bottom: 0;
+}
+
+.mr0 {
+  margin: 0;
+}
+
+.pd0 {
+  padding: 0;
+}
+
+.pb0 {
+  padding-bottom: 0 !important;
+}
+
+/* Sidebar */
+.sidebar {
+  border: 1px solid #dde3ee;
+  height: 700px
+}
+
+.col-md-3 {
+  padding-right: 0;
+}
+
+.col-md-9 {
+  padding-right: 0;
+  padding-left: 0;
+  border: 1px solid #dde3ee;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.sidebar-head {
+  padding: 5px;
+  border-bottom: 1px solid #dde3ee;
+  background: #eef1f8;
+}
+
+.btn-grey {
+  background-color: #eef1f8;
+  border-color: #d5dae4;
+  color: #969696;
+}
+
+.new-message-btn {
+  margin-right: 13px;
+  margin-left: 5px;
+}
+
+.message {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #dde3ee;
+  border-left: 3px solid transparent;
+}
+
+.message:hover {
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+}
+
+.message.selected {
+  border-left: 3px solid #00adef;
+  background: #f9f9f9;
+}
+
+.message .media-body {
+  font-size: 11px;
+}
+
+.message-container-controls {
+  padding: 5px;
+  border-bottom: 1px solid #dde3ee;
+  background: #eef1f8;
+  padding-left: 10px;
+}
+
+.message-container {
+  height: 699px;
+  border-bottom: 1px solid #dde3ee;
+}
+
+.message-profile {
+  padding: 15px;
+}
+
+.messages-list {
+  padding: 15px;
+}
+
+.messages-list ul li {
+  margin-bottom: 10px;
+}
+
+hr {
+  margin-bottom: 0;
+}
+
+.message-reply-box {
+  padding: 0 15px;
+}
+
+.message-reply-box textarea {
+  border: 0;
+  position: absolute;
+  bottom: 10px;
+  width: 96%;
+}
+
+.welcome {
+	text-align: center;
+	font-weight: 200;
+	position: relative;
+	top: 100px;
+}
+
+.welcome .icon {
+    font-size: 10em;
+    color: #c2cdda;
+}
+
+.welcome h2 {
+    font-size: 1.6em;
+    font-weight: 200;
+}
+
+textarea:focus, 
+input:focus {
+  outline: none !important;
+  outline: 0 !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
+}
+
+.messages-list {
+  height: 70%;
+  overflow-y: auto;
+}
+
+.message-text {
+    background: #eef1f8;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.message-text.outbound {
+    background: #4080ff;
+    color: #FFF;
+}
