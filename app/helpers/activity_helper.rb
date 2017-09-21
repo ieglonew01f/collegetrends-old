@@ -33,9 +33,9 @@ module ActivityHelper
       when "comment.create"
         if a.trackable_id
           post = Comment.where('id = ?', a.trackable_id).first.try(:post)
-          recipient = User.find(post.user_id)
 
           if post
+            recipient = User.find(post.user_id)
             activities.push({"message" => "commented on <a href='/profile/#{recipient.username}'>#{recipient.first_name} #{recipient.last_name}</a>  <a href='/posts/#{post.id}'>post</a>", "time_stamp" => time_ago_in_words(a.created_at), "owner" => owner, "object" => post}) 
           end
         end
