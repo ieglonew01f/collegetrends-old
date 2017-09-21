@@ -26,6 +26,31 @@ class FollowersController < ApplicationController
     end
   end
 
+  def get_following
+    followings = Follower.where('follower_id = ?', current_user.id).all
+
+    followings_data = []
+
+    if followings
+      followings.each do |f|
+        if f && f.following_id
+          user = User.find(f.following_id)
+          if user
+            followings_data.push(user)
+          end
+        end
+      end
+    end
+
+    respond_to do |format|
+      if followings
+        format.json { render :json => { :status => 200, :message => 'Followings', :followings_data => followings_data} }
+      else
+        format.json { render json => { :status => :unprocessable_entity, :errors => post.errors } }
+      end
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def follower_params

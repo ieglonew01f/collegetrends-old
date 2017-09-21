@@ -69,10 +69,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def get_followers
-    # do stuff here
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -10,10 +10,23 @@ Rails.application.routes.draw do
 
   root 'index#index'
 
+  resources :inbox
+
   resources :notifications
   resources :post_likes
-  resources :messages
-  resources :followers
+  
+  resources :messages do
+    collection do
+      get 'get_messages'
+    end
+  end
+
+  resources :followers do
+    collection do
+      get 'get_following'
+    end
+  end
+
   resources :posts do
     resources :comments do 
       collection do 

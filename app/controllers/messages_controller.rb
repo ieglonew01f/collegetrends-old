@@ -1,74 +1,40 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
-
-  # GET /messages
-  # GET /messages.json
-  def index
-    @messages = Message.all
-  end
-
-  # GET /messages/1
-  # GET /messages/1.json
-  def show
-  end
-
-  # GET /messages/new
-  def new
-    @message = Message.new
-  end
-
-  # GET /messages/1/edit
-  def edit
-  end
-
-  # POST /messages
-  # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    message = params[:message]
+    for_id = params[:for_id]
+
+    msg = Message.new
+
+    msg.message = message
+    msg.for_id = for_id
+    msg.by_id = current_user.id
 
     respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
+      if msg.save
+        format.json { render :json => { :status => 200, :message => "Message saved successfully."} }
       else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.json { render :json => { :status => :unprocessable_entity, :errors => msg.errors } }
       end
     end
   end
 
-  # PATCH/PUT /messages/1
-  # PATCH/PUT /messages/1.json
-  def update
+  def get_messages
+    for_id = params[:for_id]
+    current_user_id = current_user.id
+
+    messages = []
+
+    mgs = Message.find_by_sql("SELECT * FROM messages WHERE by_id = #{for_id} AND for_id = #{current_user_id} UNION SELECT * FROM messages WHERE by_id = #{current_user_id} AND for_id = #{for_id} ORDER BY id ASC")
+
+    mgs.each do |m|
+      messages.push({
+        "message" => m,
+        "outbound" => (m.by_id == current_user.id)
+      })
+    end
+
     respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+      format.json { render :json => { :status => 200, :messages => messages} }
     end
   end
-
-  # DELETE /messages/1
-  # DELETE /messages/1.json
-  def destroy
-    @message.destroy
-    respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def message_params
-      params.require(:message).permit(:message, :by_id, :for_id)
-    end
 end

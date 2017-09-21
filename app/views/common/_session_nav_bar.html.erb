@@ -23,6 +23,9 @@
         </div>
       </div>
       <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown inbox-dropdown">
+          <a href="/inbox" class="dropdown-toggle"><span class="glyphicon glyphicon-inbox"></span></a>
+        </li>
         <li class="dropdown notification-dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon icon-bell"></span></a>
           <ul class="dropdown-menu">
@@ -49,3 +52,7 @@
 
 <%= render "templates/search_results_template" %>
 <%= render "templates/notifications_template" %>
+
+<script>
+var CURRENT_USER_ID = <%= "#{current_user.id}"; %>
+</script>

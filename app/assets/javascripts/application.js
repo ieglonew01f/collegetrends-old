@@ -14,6 +14,7 @@
 //= require rails_emoji_picker
 //= require jquery_ujs
 //= require bootstrap/bootstrap.js
+
 //= require handlebars/handlebars.js
 //= require jquery_form/jquery.form.js
 
@@ -22,3 +23,4 @@
 //= require lib/utils/utils.js
 //= require search/search.js
 //= require notifications/notifications.js
+

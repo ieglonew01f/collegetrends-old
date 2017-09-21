@@ -21,15 +21,15 @@
         .col-md-3
           .well.well-login
             .signin-inner
-              %form.form-horizontal
+              = form_for(@user, url: "/users/sign_in", :html => {:class => "form-horizontal"}) do |f|
                 %fieldset
                   .form-group
-                    %input#email-login.input-vk{:placeholder => "Email", :type => "text"}/
+                    %input#email-login.input-vk{:placeholder => "Email", :name => "user[email]", :type => "text"}/
                   .form-group
                     %input#email-login.input-vk.hidden
-                    %input#password-login.input-vk{:placeholder => "Password", :type => "password"}/
+                    %input#password-login.input-vk{:placeholder => "Password", :name => "user[password]", :type => "password"}/
                   .form-group.nmb
-                    %button.btn.btn-sm.btn-primary.btn-login Login
+                    %input.btn.btn-sm.btn-primary.btn-login{:type => "submit", :value => "Log In"}
             .signup-facebook
               %a{:href => "#{user_facebook_omniauth_authorize_path}"}
                 %span.icon-facebook
