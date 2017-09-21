@@ -4,6 +4,8 @@ module ActivityHelper
 
     ac = PublicActivity::Activity.all.order('created_at desc').limit(5)
 
+    return activities if ac.nil?
+
     ac.each do |a|
       owner = User.find(a.owner_id)
 
